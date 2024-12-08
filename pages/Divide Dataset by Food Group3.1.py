@@ -34,6 +34,19 @@ if os.path.exists(file_path):
     )
     search_query = st.sidebar.text_input("Enter your search query:")
 
+    # Nutrient selection options
+    st.sidebar.header("Select Nutrient Columns")
+    nutrient_columns = list(df.columns[4:])  # Assuming nutrients start from column 5
+
+    # Default nutrients
+    default_nutrients = ["Energy", "Protein"]
+    optional_nutrients = [col for col in nutrient_columns if col not in default_nutrients]
+
+    selected_nutrients = default_nutrients.copy()
+    for nutrient in optional_nutrients:
+        if st.sidebar.checkbox(f"Include {nutrient}", value=False):
+            selected_nutrients.append(nutrient)
+
     # Filter the dataset based on the selected search option
     filtered_df = df.copy()
     if search_query:
@@ -54,13 +67,14 @@ if os.path.exists(file_path):
                 filtered_df[local_name_col].str.contains(search_query, case=False, na=False)
             ]
 
-    # Display the specific entry
+    # Display the specific entry with selected nutrients
     if not filtered_df.empty:
         st.subheader("Search Result")
         # Display only the first match
         row = filtered_df.iloc[0]
         for col, value in row.items():
-            st.write(f"**{col}**: {value}")
+            if col in [food_code_col, food_name_col, scientific_name_col, local_name_col] or col in selected_nutrients:
+                st.write(f"**{col}**: {value}")
     else:
         st.warning("No results found for your search query.")
 else:
