@@ -41,14 +41,16 @@ selected_columns = st.sidebar.multiselect(
 )
 
 # Filter the dataset based on the search query
-filtered_df = pd.DataFrame()
+filtered_df = df[df["Food Code; code"].astype(str).str.contains(search_query, case=False, na=False)]
+
 if search_query:
     if search_by == "Food Code":
-        filtered_df = df[df["Food Code; code"].str.contains(search_query, case=False, na=False)]
+        filtered_df = df[df["Food Code; code"].astype(str).str.contains(search_query, case=False, na=False)]
     elif search_by == "Food Name":
-        filtered_df = df[df["Food Name; name"].str.contains(search_query, case=False, na=False)]
+        filtered_df = df[df["Food Name; name"].astype(str).str.contains(search_query, case=False, na=False)]
     elif search_by == "Local Name":
-        filtered_df = df[df["Local Name; lang"].str.contains(search_query, case=False, na=False)]
+        filtered_df = df[df["Local Name; lang"].astype(str).str.contains(search_query, case=False, na=False)]
+
 
 # Display results
 if not filtered_df.empty:
