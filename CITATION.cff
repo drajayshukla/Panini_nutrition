@@ -1,1 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite:"
+authors:
+  - family-names: Shukla
+    given-names: Ajay
+title: "Panini Nutrition"
+version: 1.0
+doi: 10.5281/zenodo.xxxxxxx
+url: https://github.com/drajayshukla/Panini_nutrition
+date-released: 2024-12-08
 
