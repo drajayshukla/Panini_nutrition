@@ -6,8 +6,8 @@ st.title("Upload CSV and Extract Specific Columns")
 
 # Columns to keep (indices)
 columns_to_keep = [
-    0, 1, 2, 3, 4, 5, 6, 8, 16, 20, 24, 26,
-    66, 70, 76, 78, 100, 165, 173, 182, 194, 196, 200
+    0, 1, 2, 3, 4, 5, 6, 8,10, 16, 20,22, 24, 26,
+    66,68 ,70, 76, 78, 100, 165,170, 172,178, 184, 194, 196, 200,202
 ]
 
 # File uploader
