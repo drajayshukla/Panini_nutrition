@@ -15,10 +15,6 @@ if os.path.exists(file_path):
     df = pd.read_csv(file_path)
     st.success(f"Auto-imported '{default_file_name}' from './data' directory.")
 
-    # Display the first few rows of the dataset
-    st.subheader("Uploaded Dataset")
-    st.dataframe(df.head())
-
     # Columns for searching
     food_code_col = df.columns[0]  # 'Food Code; code'
     food_name_col = df.columns[1]  # 'Food Name; name'
@@ -58,14 +54,13 @@ if os.path.exists(file_path):
                 filtered_df[local_name_col].str.contains(search_query, case=False, na=False)
             ]
 
-    # Display the search results
-    st.subheader("Search Results")
+    # Display the specific entry
     if not filtered_df.empty:
-        for index, row in filtered_df.iterrows():
-            st.write(f"### Food Details (Row {index + 1})")
-            for col, value in row.items():
-                st.write(f"**{col}**: {value}")
-            st.markdown("---")
+        st.subheader("Search Result")
+        # Display only the first match
+        row = filtered_df.iloc[0]
+        for col, value in row.items():
+            st.write(f"**{col}**: {value}")
     else:
         st.warning("No results found for your search query.")
 else:
