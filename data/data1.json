@@ -1,0 +1,234 @@
+{
+    "ListA": {
+        "a1": {
+            "tea": [
+                {
+                    "name_hindi": "मसाला चाय",
+                    "name_english": "Masala Tea",
+                    "quantity": "1 cup",
+                    "calories": 50,
+                    "protein": 1
+                },
+                {
+                    "name_hindi": "ग्रीन टी",
+                    "name_english": "Green Tea",
+                    "quantity": "1 cup",
+                    "calories": 0,
+                    "protein": 0
+                },
+                {
+                    "name_hindi": "ब्लैक टी",
+                    "name_english": "Black Tea",
+                    "quantity": "1 cup",
+                    "calories": 0,
+                    "protein": 0
+                },
+                {
+                    "name_hindi": "नींबू चाय",
+                    "name_english": "Lemon Tea",
+                    "quantity": "1 cup",
+                    "calories": 10,
+                    "protein": 0
+                },
+                {
+                    "name_hindi": "हर्बल चाय",
+                    "name_english": "Herbal Tea",
+                    "quantity": "1 cup",
+                    "calories": 5,
+                    "protein": 0
+                }
+            ],
+            "coffee": [
+                {
+                    "name_hindi": "एस्प्रेसो",
+                    "name_english": "Espresso",
+                    "quantity": "1 cup",
+                    "calories": 5,
+                    "protein": 0
+                },
+                {
+                    "name_hindi": "लैट्टे",
+                    "name_english": "Latte",
+                    "quantity": "1 cup",
+                    "calories": 120,
+                    "protein": 6
+                },
+                {
+                    "name_hindi": "कैप्पुचिनो",
+                    "name_english": "Cappuccino",
+                    "quantity": "1 cup",
+                    "calories": 90,
+                    "protein": 4
+                },
+                {
+                    "name_hindi": "मोचा",
+                    "name_english": "Mocha",
+                    "quantity": "1 cup",
+                    "calories": 150,
+                    "protein": 5
+                },
+                {
+                    "name_hindi": "अमेरिकानो",
+                    "name_english": "Americano",
+                    "quantity": "1 cup",
+                    "calories": 15,
+                    "protein": 0
+                }
+            ],
+            "beverages": [
+                {
+                    "name_hindi": "ताज़ा संतरे का रस",
+                    "name_english": "Fresh Orange Juice",
+                    "quantity": "1 glass",
+                    "calories": 110,
+                    "protein": 2
+                },
+                {
+                    "name_hindi": "नींबू पानी",
+                    "name_english": "Lemon Water",
+                    "quantity": "1 glass",
+                    "calories": 10,
+                    "protein": 0
+                },
+                {
+                    "name_hindi": "नारियल पानी",
+                    "name_english": "Coconut Water",
+                    "quantity": "1 glass",
+                    "calories": 45,
+                    "protein": 1
+                },
+                {
+                    "name_hindi": "मिल्कशेक",
+                    "name_english": "Milkshake",
+                    "quantity": "1 glass",
+                    "calories": 200,
+                    "protein": 6
+                },
+                {
+                    "name_hindi": "स्मूदी",
+                    "name_english": "Smoothie",
+                    "quantity": "1 glass",
+                    "calories": 150,
+                    "protein": 4
+                }
+            ]
+        },
+        "a2_veg": {
+            "breakfast_main_course": [
+                {
+                    "name_hindi": "पोहा",
+                    "name_english": "Poha",
+                    "quantity": "1 plate",
+                    "calories": 250,
+                    "protein": 6
+                },
+                {
+                    "name_hindi": "उपमा",
+                    "name_english": "Upma",
+                    "quantity": "1 plate",
+                    "calories": 200,
+                    "protein": 5
+                },
+                {
+                    "name_hindi": "इडली",
+                    "name_english": "Idli",
+                    "quantity": "2 pieces",
+                    "calories": 120,
+                    "protein": 4
+                },
+                {
+                    "name_hindi": "डोसा",
+                    "name_english": "Dosa",
+                    "quantity": "1 piece",
+                    "calories": 160,
+                    "protein": 5
+                },
+                {
+                    "name_hindi": "पराठा",
+                    "name_english": "Paratha",
+                    "quantity": "1 piece",
+                    "calories": 200,
+                    "protein": 4
+                }
+            ]
+        },
+        "a2_nonveg": {
+            "nonveg_breakfast": [
+                {
+                    "name_hindi": "अंडा आमलेट",
+                    "name_english": "Egg Omelette",
+                    "quantity": "1 piece",
+                    "calories": 120,
+                    "protein": 7
+                },
+                {
+                    "name_hindi": "उबले अंडे",
+                    "name_english": "Boiled Eggs",
+                    "quantity": "2 pieces",
+                    "calories": 140,
+                    "protein": 12
+                },
+                {
+                    "name_hindi": "चिकन सैंडविच",
+                    "name_english": "Chicken Sandwich",
+                    "quantity": "1 piece",
+                    "calories": 300,
+                    "protein": 20
+                },
+                {
+                    "name_hindi": "फिश कटलेट",
+                    "name_english": "Fish Cutlet",
+                    "quantity": "1 piece",
+                    "calories": 180,
+                    "protein": 15
+                },
+                {
+                    "name_hindi": "ग्रिल्ड फिश",
+                    "name_english": "Grilled Fish",
+                    "quantity": "1 piece",
+                    "calories": 220,
+                    "protein": 25
+                }
+            ]
+        },
+        "a3": {
+            "chutneys_and_nominal_calorie_items": [
+                {
+                    "name_hindi": "पुदीना चटनी",
+                    "name_english": "Mint Chutney",
+                    "quantity": "1 tablespoon",
+                    "calories": 10,
+                    "protein": 0
+                },
+                {
+                    "name_hindi": "नारियल चटनी",
+                    "name_english": "Coconut Chutney",
+                    "quantity": "1 tablespoon",
+                    "calories": 50,
+                    "protein": 1
+                },
+                {
+                    "name_hindi": "टमाटर चटनी",
+                    "name_english": "Tomato Chutney",
+                    "quantity": "1 tablespoon",
+                    "calories": 15,
+                    "protein": 0
+                },
+                {
+                    "name_hindi": "मूंगफली चटनी",
+                    "name_english": "Peanut Chutney",
+                    "quantity": "1 tablespoon",
+                    "calories": 60,
+                    "protein": 2
+                },
+                {
+                    "name_hindi": "इमली की चटनी",
+                    "name_english": "Tamarind Chutney",
+                    "quantity": "1 tablespoon",
+                    "calories": 20,
+                    "protein": 0
+                }
+            ]
+        }
+    }
+}

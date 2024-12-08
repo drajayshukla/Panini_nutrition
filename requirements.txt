@@ -1,0 +1,12 @@
+streamlit
+matplotlib
+plotly
+pandas
+fpdf
+reportlab
+numpy
+seaborn
+gspread
+oauth2client
+pandas
+ 

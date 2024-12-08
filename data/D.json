@@ -1,0 +1,665 @@
+{
+    "D": {
+        "D1": [
+            {
+                "Name": "Apple Banana Milkshake in Cows Milk With Honey ",
+                "Quantities": " 1 Medium Glass(160 ml)",
+                "Kcal": "141"
+            },
+            {
+                "Name": "Apple Chia Seeds Smoothie In Soy Curd Without Sugar ",
+                "Quantities": " 1 Large Bowl(160 gm)",
+                "Kcal": "139"
+            },
+            {
+                "Name": "Apple Soy Curd Smoothie ",
+                "Quantities": " 1 Large Bowl(160 gm)",
+                "Kcal": "137"
+            },
+            {
+                "Name": "Basil Lemon Juice With Honey ",
+                "Quantities": " 1 Large Glass(200 ml)",
+                "Kcal": "38"
+            },
+            {
+                "Name": "Bhelpuri with Sprouts ",
+                "Quantities": " 1 Medium Bowl(61 gm)",
+                "Kcal": "150"
+            },
+            {
+                "Name": "Black Cold Coffee ",
+                "Quantities": " 1 Medium Glass(160 ml)",
+                "Kcal": "102"
+            },
+            {
+                "Name": "Bottlegourd Soup ",
+                "Quantities": " 1 Large Soup Bowl(242 gm)",
+                "Kcal": "52"
+            },
+            {
+                "Name": "Brown Bread Butter Jam Slice ",
+                "Quantities": " 1 Bread (3\")(31 gm)",
+                "Kcal": "98"
+            },
+            {
+                "Name": "Cardamom Tea Without Sugar ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "41"
+            },
+            {
+                "Name": "Coffee With Almond Milk Without Sugar ",
+                "Quantities": " 1 Large Glass(220 ml)",
+                "Kcal": "32"
+            },
+            {
+                "Name": "Coffee With Almond Milk Without Sugar ",
+                "Quantities": " 1 Medium Cup(132 ml)",
+                "Kcal": "19"
+            },
+            {
+                "Name": "Coffee With Jaggery ",
+                "Quantities": " 1 Medium Cup(132 ml)",
+                "Kcal": "77"
+            },
+            {
+                "Name": "Coffee With Skim Milk And Stevia ",
+                "Quantities": " 1 Large Cup(176 ml)",
+                "Kcal": "47"
+            },
+            {
+                "Name": "Coffee With Skim Milk And Stevia ",
+                "Quantities": " 1 Medium Cup(132 ml)",
+                "Kcal": "35"
+            },
+            {
+                "Name": "Coffee With Skim Milk And Sugar ",
+                "Quantities": " 1 Medium Cup(132 ml)",
+                "Kcal": "48"
+            },
+            {
+                "Name": "Coffee With Skim Milk Without Sugar ",
+                "Quantities": " 1 Medium Cup(132 ml)",
+                "Kcal": "35"
+            },
+            {
+                "Name": "Coffee With Skim Milk Without Sugar ",
+                "Quantities": " 1 Medium Cup(132 ml)",
+                "Kcal": "36"
+            },
+            {
+                "Name": "Coffee With Stevia ",
+                "Quantities": " 1 Large Cup(176 ml)",
+                "Kcal": "91"
+            },
+            {
+                "Name": "Coffee With Stevia ",
+                "Quantities": " 1 Medium Cup(132 ml)",
+                "Kcal": "68"
+            },
+            {
+                "Name": "Coffee ",
+                "Quantities": " 1 Large Cup(176 ml)",
+                "Kcal": "109"
+            },
+            {
+                "Name": "Coffee ",
+                "Quantities": " 1 Medium Cup(132 ml)",
+                "Kcal": "81"
+            },
+            {
+                "Name": "Cow Milk Ginger Tea With Stevia ",
+                "Quantities": " 1 Large Cup(200 ml)",
+                "Kcal": "55"
+            },
+            {
+                "Name": "Cow Milk Masala Tea Without Sugar ",
+                "Quantities": " 1 Large Cup(200 ml)",
+                "Kcal": "50"
+            },
+            {
+                "Name": "Cow Milk Masala Tea Without Sugar ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "37"
+            },
+            {
+                "Name": "Cow Milk Tea With Cinnamon Ginger Without Sugar ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "48"
+            },
+            {
+                "Name": "Cow Milk Tea With Jaggery ",
+                "Quantities": " 1 Large Cup(200 ml)",
+                "Kcal": "67"
+            },
+            {
+                "Name": "Cow Milk Tea With Jaggery ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "50"
+            },
+            {
+                "Name": "Cow Milk Tea With Jaggery ",
+                "Quantities": " 1 Small Cup(100 ml)",
+                "Kcal": "33"
+            },
+            {
+                "Name": "Cow Milk Tea Without Sugar ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "40"
+            },
+            {
+                "Name": "Co\ufb00ee With Almond Milk Without Sugar ",
+                "Quantities": " 1 Medium Cup(132 ml)",
+                "Kcal": "19"
+            },
+            {
+                "Name": "Elaichi Chai ",
+                "Quantities": " 1 Large Cup(200 ml)",
+                "Kcal": "75"
+            },
+            {
+                "Name": "Elaichi Chai ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "56"
+            },
+            {
+                "Name": "Mango Almond Milk Smoothie ",
+                "Quantities": " 1 Large Bowl(160 gm)",
+                "Kcal": "61"
+            },
+            {
+                "Name": "Mango Soy Milk Shake ",
+                "Quantities": " 1 Medium Glass(160 ml)",
+                "Kcal": "113"
+            },
+            {
+                "Name": "Masala Chaas ",
+                "Quantities": " 1 Large Glass(300 ml)",
+                "Kcal": "52"
+            },
+            {
+                "Name": "Mushroom Soup ",
+                "Quantities": " 1 Medium Soup Bowl(181 gm)",
+                "Kcal": "61"
+            },
+            {
+                "Name": "Popcorn ",
+                "Quantities": " 1 Medium Bowl(30 gm)",
+                "Kcal": "103"
+            },
+            {
+                "Name": "Salty Lime Juice ",
+                "Quantities": " 1 Medium Glass(160 ml)",
+                "Kcal": "5"
+            },
+            {
+                "Name": "Skim Milk Cardamom Tea Without Sugar ",
+                "Quantities": " 1 Large Cup(200 ml)",
+                "Kcal": "27"
+            },
+            {
+                "Name": "Skim Milk Cardamom Tea Without Sugar ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "20"
+            },
+            {
+                "Name": "Skim Milk Tea Without Sugar ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "20"
+            },
+            {
+                "Name": "Skim Milk Tea Without Sugar ",
+                "Quantities": " 1 Small Cup(100 ml)",
+                "Kcal": "13"
+            },
+            {
+                "Name": "Skimmed Milk Cardmom Tea Without Sugar ",
+                "Quantities": " 1 Large Cup(200 ml)",
+                "Kcal": "27"
+            },
+            {
+                "Name": "Skimmed Milk Tea With Stevia ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "20"
+            },
+            {
+                "Name": "Tea With Skimmed Milk Without Sugar ",
+                "Quantities": " 1 Large Cup(200 ml)",
+                "Kcal": "27"
+            },
+            {
+                "Name": "Tea With Skimmed Milk Without Sugar ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "20"
+            },
+            {
+                "Name": "Tea Without Sugar ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "40"
+            },
+            {
+                "Name": "Tea ",
+                "Quantities": " 1 Large Cup(200 ml)",
+                "Kcal": "74"
+            },
+            {
+                "Name": "Tea ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "56"
+            },
+            {
+                "Name": "Tomato Spinach Soup ",
+                "Quantities": " 1 Large Soup Bowl(242 gm)",
+                "Kcal": "46"
+            },
+            {
+                "Name": "Vegetable Clear Soup ",
+                "Quantities": " 1 Large Soup Bowl(226 gm)",
+                "Kcal": "42"
+            },
+            {
+                "Name": "Whole Wheat Crackers ",
+                "Quantities": " 1 Number(20 gm)",
+                "Kcal": "66"
+            }
+        ],
+        "D2": [
+            {
+                "Name": "Anjeer ",
+                "Quantities": " 2 Medium(126 gm)",
+                "Kcal": "103"
+            },
+            {
+                "Name": "Baked Kachori ",
+                "Quantities": " 2 Number(22 gm)",
+                "Kcal": "45"
+            },
+            {
+                "Name": "Barley Upma With Vegetables With Ghee ",
+                "Quantities": " 1 Medium Bowl(141 gm)",
+                "Kcal": "73"
+            },
+            {
+                "Name": "Barley Upma Without Vegetables With Ghee ",
+                "Quantities": " 1 Large Bowl(120 gm)",
+                "Kcal": "106"
+            },
+            {
+                "Name": "Barley Upma Without Vegetables With Ghee ",
+                "Quantities": " 1 Medium Bowl(90 gm)",
+                "Kcal": "79"
+            },
+            {
+                "Name": "Barley Vegetables Upma Without Oil ",
+                "Quantities": " 1 Large Bowl(120 gm)",
+                "Kcal": "85"
+            },
+            {
+                "Name": "Barley Vegetables Upma Without Oil ",
+                "Quantities": " 1 Medium Bowl(90 gm)",
+                "Kcal": "64"
+            },
+            {
+                "Name": "Beetroot Onion Poha ",
+                "Quantities": " 1 Medium Bowl(90 gm)",
+                "Kcal": "174"
+            },
+            {
+                "Name": "Black Chickpeas Cutlet ",
+                "Quantities": " 2 Number(72 gm)",
+                "Kcal": "121"
+            },
+            {
+                "Name": "Black Tea With Cardamom ",
+                "Quantities": " 1 Small Cup(100 ml)",
+                "Kcal": "13"
+            },
+            {
+                "Name": "Boiled Chana ",
+                "Quantities": " 1 Medium Bowl(90 gm)",
+                "Kcal": "48"
+            },
+            {
+                "Name": "Brown Bread Butter Jam Slice ",
+                "Quantities": " 1 Bread (3\")(31 gm)",
+                "Kcal": "98"
+            },
+            {
+                "Name": "Chana Chor With Corn ",
+                "Quantities": " 1 Large Bowl(76 gm)",
+                "Kcal": "240"
+            },
+            {
+                "Name": "Cheese Penne Pasta With Veggies ",
+                "Quantities": " 1 Medium Bowl(122 gm)",
+                "Kcal": "133"
+            },
+            {
+                "Name": "Chicken Croissant ",
+                "Quantities": " 2 Number(72 gm)",
+                "Kcal": "289"
+            },
+            {
+                "Name": "Chukandar Aloo Cutlet ",
+                "Quantities": " 2 Number(56 gm)",
+                "Kcal": "87"
+            },
+            {
+                "Name": "Cow Milk Tea With Jaggery ",
+                "Quantities": " 1 Small Cup(100 ml)",
+                "Kcal": "33"
+            },
+            {
+                "Name": "Crispy Potato Cutlet ",
+                "Quantities": " 2 Number(151 gm)",
+                "Kcal": "77"
+            },
+            {
+                "Name": "Grapes ",
+                "Quantities": " 1 Medium Bowl(102 gm)",
+                "Kcal": "55"
+            },
+            {
+                "Name": "Idli ",
+                "Quantities": " 1 Large(45 gm)",
+                "Kcal": "79"
+            },
+            {
+                "Name": "Jhuri Aloo Bhaja ",
+                "Quantities": " 1 Medium Bowl(57 gm)",
+                "Kcal": "142"
+            },
+            {
+                "Name": "Kachori ",
+                "Quantities": " 2 Number(26 gm)",
+                "Kcal": "113"
+            },
+            {
+                "Name": "Khakra Chaat ",
+                "Quantities": " 1 Large Bowl(76 gm)",
+                "Kcal": "113"
+            },
+            {
+                "Name": "Kurmura ",
+                "Quantities": " 1 Medium Bowl(30 gm)",
+                "Kcal": "114"
+            },
+            {
+                "Name": "Lasaniya Mumra ",
+                "Quantities": " 1 Medium Bowl(30 gm)",
+                "Kcal": "106"
+            },
+            {
+                "Name": "Masala Murmura Bhel ",
+                "Quantities": " 1 Large Bowl(40 gm)",
+                "Kcal": "108"
+            },
+            {
+                "Name": "Masala Murmura Bhel ",
+                "Quantities": " 1 Medium Bowl(30 gm)",
+                "Kcal": "81"
+            },
+            {
+                "Name": "Mausambi ",
+                "Quantities": " 1 Medium(181 gm)",
+                "Kcal": "49"
+            },
+            {
+                "Name": "Methi Dhokla ",
+                "Quantities": " 4 Number(160 gm)",
+                "Kcal": "245"
+            },
+            {
+                "Name": "Methi Khakhra With Oil Homemade ",
+                "Quantities": " 1 Number(28 gm)",
+                "Kcal": "107"
+            },
+            {
+                "Name": "Mixed Nuts Kul\u0000 Homemade ",
+                "Quantities": " 1 Number(60 gm)",
+                "Kcal": "109"
+            },
+            {
+                "Name": "Moong Chaat ",
+                "Quantities": " 1 Medium Bowl(90 gm)",
+                "Kcal": "43"
+            },
+            {
+                "Name": "Moong Chilla ",
+                "Quantities": " 2 Number(100 gm)",
+                "Kcal": "175"
+            },
+            {
+                "Name": "Moong Dal Cheela ",
+                "Quantities": " 2 Number(100 gm)",
+                "Kcal": "237"
+            },
+            {
+                "Name": "Mutton Cutlet Kolkata Street Style ",
+                "Quantities": " 1 Number(73 gm)",
+                "Kcal": "162"
+            },
+            {
+                "Name": "Nutty Rice Porridge In Water With Ghee Without Sugar ",
+                "Quantities": " 1 Medium Bowl(146 gm)",
+                "Kcal": "127"
+            },
+            {
+                "Name": "Oat Falafel Cutlet ",
+                "Quantities": " 2 Number(50 gm)",
+                "Kcal": "130"
+            },
+            {
+                "Name": "Onion Tomato Uttapam ",
+                "Quantities": " 1 Number(80 gm)",
+                "Kcal": "114"
+            },
+            {
+                "Name": "Orange ",
+                "Quantities": " 1 Number(104 gm)",
+                "Kcal": "39"
+            },
+            {
+                "Name": "Pear ",
+                "Quantities": " 1 Large(200 gm)",
+                "Kcal": "75"
+            },
+            {
+                "Name": "Pineapple Chunks ",
+                "Quantities": " 1 Large Bowl(124 gm)",
+                "Kcal": "53"
+            },
+            {
+                "Name": "Pineapple Chunks ",
+                "Quantities": " 1 Medium Bowl(93 gm)",
+                "Kcal": "40"
+            },
+            {
+                "Name": "Plain Roasted Makhana ",
+                "Quantities": " 1 Medium Bowl(30 gm)",
+                "Kcal": "110"
+            },
+            {
+                "Name": "Pomegranate ",
+                "Quantities": " 1 Large Bowl(64 gm)",
+                "Kcal": "35"
+            },
+            {
+                "Name": "Pomegranate ",
+                "Quantities": " 1 Medium Bowl(48 gm)",
+                "Kcal": "26"
+            },
+            {
+                "Name": "Popcorn ",
+                "Quantities": " 1 Medium Bowl(30 gm)",
+                "Kcal": "103"
+            },
+            {
+                "Name": "Potato Spinach Cutlet ",
+                "Quantities": " 3 Number(98 gm)",
+                "Kcal": "181"
+            },
+            {
+                "Name": "Rava Uttapam ",
+                "Quantities": " 2 Number(216 gm)",
+                "Kcal": "216"
+            },
+            {
+                "Name": "Rawa Alsi Ladoo ",
+                "Quantities": " 1 Medium(25 gm)",
+                "Kcal": "148"
+            },
+            {
+                "Name": "Rice Rava Upma ",
+                "Quantities": " 1 Medium Bowl(90 gm)",
+                "Kcal": "128"
+            },
+            {
+                "Name": "Rice Vermicelli Upma With Vegetable Without Oil ",
+                "Quantities": " 1 Medium Bowl(90 gm)",
+                "Kcal": "125"
+            },
+            {
+                "Name": "Rice Vermicelli Vegetable Upma Without Oil ",
+                "Quantities": " 1 Medium Bowl(90 gm)",
+                "Kcal": "80"
+            },
+            {
+                "Name": "Roasted Chana Peanut ",
+                "Quantities": " 1 Medium Bowl(57 gm)",
+                "Kcal": "260"
+            },
+            {
+                "Name": "Roasted Chickpea ",
+                "Quantities": " 1 Large Bowl(52 gm)",
+                "Kcal": "100"
+            },
+            {
+                "Name": "Roasted Chickpea ",
+                "Quantities": " 1 Medium Bowl(39 gm)",
+                "Kcal": "75"
+            },
+            {
+                "Name": "Roasted Moong Dal ",
+                "Quantities": " 1 Medium Bowl(30 gm)",
+                "Kcal": "132"
+            },
+            {
+                "Name": "Roasted Salted Makhana Without Ghee ",
+                "Quantities": " 1 Large Bowl(20 gm)",
+                "Kcal": "64"
+            },
+            {
+                "Name": "Spicy Masala Khakara ",
+                "Quantities": " 1 Number(8 gm)",
+                "Kcal": "33"
+            },
+            {
+                "Name": "Sprouted Ragi Pattice ",
+                "Quantities": " 1 Number(39 gm)",
+                "Kcal": "67"
+            },
+            {
+                "Name": "Sprouts Carrot Cheela ",
+                "Quantities": " 2 Number(100 gm)",
+                "Kcal": "182"
+            },
+            {
+                "Name": "Stir Fry Oats Veggie Upma ",
+                "Quantities": " 1 Medium Bowl(90 gm)",
+                "Kcal": "124"
+            },
+            {
+                "Name": "Tea ",
+                "Quantities": " 1 Medium Cup(150 ml)",
+                "Kcal": "56"
+            },
+            {
+                "Name": "Veg Momos ",
+                "Quantities": " 3 Number(90 gm)",
+                "Kcal": "143"
+            },
+            {
+                "Name": "Veg Wa\u0000e ",
+                "Quantities": " 1 Number(50 gm)",
+                "Kcal": "115"
+            },
+            {
+                "Name": "Vegetable Besan Cheela ",
+                "Quantities": " 2 Number(100 gm)",
+                "Kcal": "145"
+            },
+            {
+                "Name": "Watermelon ",
+                "Quantities": " 1 Large Bowl(123 gm)",
+                "Kcal": "25"
+            },
+            {
+                "Name": "Watermelon ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "19"
+            },
+            {
+                "Name": "Wheat Bajra Methi Khakra With Oil Homemade ",
+                "Quantities": " 1 Number(28 gm)",
+                "Kcal": "102"
+            },
+            {
+                "Name": "Whole Wheat Crackers ",
+                "Quantities": " 1 Number(20 gm)",
+                "Kcal": "66"
+            },
+            {
+                "Name": "Whole Wheat Crackers ",
+                "Quantities": " 1 Number(20 gm)",
+                "Kcal": "71"
+            }
+        ],
+        "D3": [
+            {
+                "Name": "Amla Chutney ",
+                "Quantities": " 1 Tbsp(10 gm)",
+                "Kcal": "15"
+            },
+            {
+                "Name": "Coconut Coriander Chutney ",
+                "Quantities": " 2 Tbsp(25 gm)",
+                "Kcal": "39"
+            },
+            {
+                "Name": "Green Chutney ",
+                "Quantities": " 2 Tbsp(25 gm)",
+                "Kcal": "6"
+            },
+            {
+                "Name": "Hummus ",
+                "Quantities": " 1 Small Bowl(55 gm)",
+                "Kcal": "194"
+            },
+            {
+                "Name": "Mint Curd Dip ",
+                "Quantities": " 2 Tbsp(29 gm)",
+                "Kcal": "23"
+            },
+            {
+                "Name": "Mint Hummus ",
+                "Quantities": " 2 Tbsp(108 gm)",
+                "Kcal": "35"
+            },
+            {
+                "Name": "Raw Mango Coconut Chutney ",
+                "Quantities": " 1 Tbsp(13 gm)",
+                "Kcal": "11"
+            },
+            {
+                "Name": "Salsa Sauce ",
+                "Quantities": " 2 Tbsp(25 gm)",
+                "Kcal": "24"
+            },
+            {
+                "Name": "Yogurt Dip Homemade ",
+                "Quantities": " 1 Tbsp(15 gm)",
+                "Kcal": "20"
+            }
+        ]
+    }
+}

@@ -1,0 +1,1309 @@
+{
+    "E": {
+        "E1": [
+            {
+                "Name": "Akki Roti With Peanut With Less Ghee ",
+                "Quantities": " 1 Small(60 gm)",
+                "Kcal": "181"
+            },
+            {
+                "Name": "Aloo Gobi Paratha With Oil ",
+                "Quantities": " 1 Medium(110 gm)",
+                "Kcal": "221"
+            },
+            {
+                "Name": "Bajra and Moong Dal Khichdi ",
+                "Quantities": " 1 Large Bowl(150 gm)",
+                "Kcal": "110"
+            },
+            {
+                "Name": "Bean Pea Soup ",
+                "Quantities": " 1 Large Soup Bowl(230 gm)",
+                "Kcal": "156"
+            },
+            {
+                "Name": "Bean Sprouts Cucumber Apple Salad With Honey Dressing ",
+                "Quantities": " 1 Medium Bowl(99 gm)",
+                "Kcal": "79"
+            },
+            {
+                "Name": "Beetroot Carrot Cucumber Salad Without Salt ",
+                "Quantities": " 1 Small Bowl(62 gm)",
+                "Kcal": "18"
+            },
+            {
+                "Name": "Beetroot Carrot Salad ",
+                "Quantities": " 1 Large Bowl(132 gm)",
+                "Kcal": "44"
+            },
+            {
+                "Name": "Beetroot Cucumber Salad ",
+                "Quantities": " 1 Large Bowl(42 gm)",
+                "Kcal": "35"
+            },
+            {
+                "Name": "Boiled Corn With Lemon ",
+                "Quantities": " 1 Large Bowl(120 gm)",
+                "Kcal": "110"
+            },
+            {
+                "Name": "Boiled Corn ",
+                "Quantities": " 1 Large Bowl(150 gm)",
+                "Kcal": "112"
+            },
+            {
+                "Name": "Butter Garlic Naan ",
+                "Quantities": " 1 Number(70 gm)",
+                "Kcal": "197"
+            },
+            {
+                "Name": "Cabbage Capsicum Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "20"
+            },
+            {
+                "Name": "Cabbage Carrot Capsicum Salad ",
+                "Quantities": " 1 Large Bowl(123 gm)",
+                "Kcal": "31"
+            },
+            {
+                "Name": "Cabbage Carrot Capsicum Salad ",
+                "Quantities": " 1 Large Bowl(75 gm)",
+                "Kcal": "31"
+            },
+            {
+                "Name": "Cabbage Cucumber Carrot Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "22"
+            },
+            {
+                "Name": "Cabbage Tomato Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "20"
+            },
+            {
+                "Name": "Capsicum Boondi Raita ",
+                "Quantities": " 1 Large Bowl(185 gm)",
+                "Kcal": "164"
+            },
+            {
+                "Name": "Carrot Cucumber Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "22"
+            },
+            {
+                "Name": "Carrot Cucumber Tomato Beetroot Salad ",
+                "Quantities": " 1 Large Bowl(123 gm)",
+                "Kcal": "33"
+            },
+            {
+                "Name": "Carrot Soup ",
+                "Quantities": " 1 Large Soup Bowl(242 gm)",
+                "Kcal": "98"
+            },
+            {
+                "Name": "Carrot ",
+                "Quantities": " 1 Large(128 gm)",
+                "Kcal": "43"
+            },
+            {
+                "Name": "Chickpea Salad ",
+                "Quantities": " 1 Large Bowl(170 gm)",
+                "Kcal": "123"
+            },
+            {
+                "Name": "Chickpea Salad ",
+                "Quantities": " 1 Small Bowl(66 gm)",
+                "Kcal": "62"
+            },
+            {
+                "Name": "Chickpea Tomato Salad ",
+                "Quantities": " 1 Small Bowl(71 gm)",
+                "Kcal": "52"
+            },
+            {
+                "Name": "Chickpeas Khichdi ",
+                "Quantities": " 1 Medium Bowl(106 gm)",
+                "Kcal": "116"
+            },
+            {
+                "Name": "Corn Cucumber Tomato Onion Salad ",
+                "Quantities": " 1 Large Bowl(123 gm)",
+                "Kcal": "57"
+            },
+            {
+                "Name": "Corn Mixed Veg Salad With Vinegar Dressing ",
+                "Quantities": " 1 Large Bowl(90 gm)",
+                "Kcal": "66"
+            },
+            {
+                "Name": "Creamy Choco Pomegranate Apple Salad ",
+                "Quantities": " 1 Small Bowl(62 gm)",
+                "Kcal": "72"
+            },
+            {
+                "Name": "Cucumber Boondi Honey Raita ",
+                "Quantities": " 1 Large Bowl(185 gm)",
+                "Kcal": "217"
+            },
+            {
+                "Name": "Cucumber Carrot Radish Salad Without Salt ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "24"
+            },
+            {
+                "Name": "Cucumber Peanut Salad ",
+                "Quantities": " 1 Large Bowl(123 gm)",
+                "Kcal": "177"
+            },
+            {
+                "Name": "Cucumber Tomato Carrot Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "22"
+            },
+            {
+                "Name": "Cucumber Tomato Onion Salad With Salt ",
+                "Quantities": " 1 Large Bowl(123 gm)",
+                "Kcal": "33"
+            },
+            {
+                "Name": "Cucumber ",
+                "Quantities": " 1 Large Bowl(120 gm)",
+                "Kcal": "24"
+            },
+            {
+                "Name": "Dal Soup ",
+                "Quantities": " 1 Large Soup Bowl(240 gm)",
+                "Kcal": "179"
+            },
+            {
+                "Name": "Lemon Rice ",
+                "Quantities": " 1 Medium Bowl(106 gm)",
+                "Kcal": "160"
+            },
+            {
+                "Name": "Lentil Soup ",
+                "Quantities": " 1 Large Soup Bowl(204 gm)",
+                "Kcal": "130"
+            },
+            {
+                "Name": "Lentil Soup ",
+                "Quantities": " 1 Medium Soup Bowl(163 gm)",
+                "Kcal": "104"
+            },
+            {
+                "Name": "Mixed Sprouts Salad ",
+                "Quantities": " 1 Large Bowl(132 gm)",
+                "Kcal": "88"
+            },
+            {
+                "Name": "Moong Matki Sprout Cucumber Salad ",
+                "Quantities": " 1 Large Bowl(123 gm)",
+                "Kcal": "130"
+            },
+            {
+                "Name": "Onion Paratha ",
+                "Quantities": " 1 Medium(60 gm)",
+                "Kcal": "194"
+            },
+            {
+                "Name": "Onion Tomato Cucumber Cow Milk Curd Raita ",
+                "Quantities": " 1 Medium Bowl(139 gm)",
+                "Kcal": "80"
+            },
+            {
+                "Name": "Onion ",
+                "Quantities": " 1 Large Bowl(120 gm)",
+                "Kcal": "59"
+            },
+            {
+                "Name": "Palak Soup ",
+                "Quantities": " 1 Large Soup Bowl(280 gm)",
+                "Kcal": "109"
+            },
+            {
+                "Name": "Peas Carrot Soup ",
+                "Quantities": " 1 Medium Soup Bowl(194 gm)",
+                "Kcal": "59"
+            },
+            {
+                "Name": "Peas Carrot Soup ",
+                "Quantities": " 1 Medium Soup Bowl(194 gm)",
+                "Kcal": "64"
+            },
+            {
+                "Name": "Soyabean Beet Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "84"
+            },
+            {
+                "Name": "Spicy Moong Salad ",
+                "Quantities": " 1 Medium Bowl(99 gm)",
+                "Kcal": "70"
+            },
+            {
+                "Name": "Spicy Moong Salad ",
+                "Quantities": " 1 Small Bowl(50 gm)",
+                "Kcal": "47"
+            },
+            {
+                "Name": "Sprouted Moong Chana Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "109"
+            },
+            {
+                "Name": "Sprouts ",
+                "Quantities": " 1 Medium Bowl(75 gm)",
+                "Kcal": "72"
+            },
+            {
+                "Name": "Sweet Corn Soup ",
+                "Quantities": " 1 Large Soup Bowl(229 gm)",
+                "Kcal": "88"
+            },
+            {
+                "Name": "Sweet Corn Soup ",
+                "Quantities": " 1 Medium Soup Bowl(200 gm)",
+                "Kcal": "71"
+            },
+            {
+                "Name": "Toasted Paneer Vegetable Salad ",
+                "Quantities": " 1 Large Bowl(123 gm)",
+                "Kcal": "128"
+            },
+            {
+                "Name": "Tomato Carrot Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "24"
+            },
+            {
+                "Name": "Tomato Carrot Thick Soup ",
+                "Quantities": " 1 Large Soup Bowl(242 gm)",
+                "Kcal": "95"
+            },
+            {
+                "Name": "Tomato Carrot Thick Soup ",
+                "Quantities": " 1 Medium Soup Bowl(194 gm)",
+                "Kcal": "75"
+            },
+            {
+                "Name": "Tomato Cucumber Salad ",
+                "Quantities": " 1 Large Bowl(123 gm)",
+                "Kcal": "23"
+            },
+            {
+                "Name": "Tomato Cucumber Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "17"
+            },
+            {
+                "Name": "Tomato Onion Carrot Cucumber Salad ",
+                "Quantities": " 1 Large Bowl(123 gm)",
+                "Kcal": "36"
+            },
+            {
+                "Name": "Tomato Onion Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "27"
+            },
+            {
+                "Name": "Tomato Spring Onion Soup ",
+                "Quantities": " 1 Large Soup Bowl(238 gm)",
+                "Kcal": "130"
+            },
+            {
+                "Name": "Tomato Spring Onion Soup ",
+                "Quantities": " 1 Medium Soup Bowl(190 gm)",
+                "Kcal": "104"
+            },
+            {
+                "Name": "Tomato ",
+                "Quantities": " 1 Large Bowl(120 gm)",
+                "Kcal": "24"
+            },
+            {
+                "Name": "Tomato ",
+                "Quantities": " 1 Medium Bowl(90 gm)",
+                "Kcal": "18"
+            },
+            {
+                "Name": "Tomato ",
+                "Quantities": " 1 Small Bowl(60 gm)",
+                "Kcal": "12"
+            },
+            {
+                "Name": "Tossed Green Salad ",
+                "Quantities": " 1 Medium Bowl(92 gm)",
+                "Kcal": "27"
+            },
+            {
+                "Name": "Tur Dal Khichdi With Vegetables ",
+                "Quantities": " 1 Medium Bowl(150 gm)",
+                "Kcal": "105"
+            },
+            {
+                "Name": "Vaghar Rice ",
+                "Quantities": " 1 Large Bowl(141 gm)",
+                "Kcal": "219"
+            },
+            {
+                "Name": "Vegetable Clear Soup ",
+                "Quantities": " 1 Large Soup Bowl(226 gm)",
+                "Kcal": "42"
+            }
+        ],
+        "E2": [
+            {
+                "Name": "Ajwain Paratha With Ghee ",
+                "Quantities": "1 Large(90 gm)",
+                "Kcal": "271"
+            },
+            {
+                "Name": "Akki Roti With Peanut With Less Ghee ",
+                "Quantities": "1 Small(60 gm)",
+                "Kcal": "181"
+            },
+            {
+                "Name": "Akki Roti With Peanut With Less Oil ",
+                "Quantities": "1 Small(60 gm)",
+                "Kcal": "205"
+            },
+            {
+                "Name": "Aloo Gobi Paratha With Less Ghee ",
+                "Quantities": "1 Large(170 gm)",
+                "Kcal": "286"
+            },
+            {
+                "Name": "Aloo Methi Tikki ",
+                "Quantities": "2 Number(135 gm)",
+                "Kcal": "183"
+            },
+            {
+                "Name": "Aloo Paratha With Less Ghee ",
+                "Quantities": "1 Large(170 gm)",
+                "Kcal": "299"
+            },
+            {
+                "Name": "Aloo Paratha Without Oil ",
+                "Quantities": "1 Large(170 gm)",
+                "Kcal": "252"
+            },
+            {
+                "Name": "Aloo Paratha Without Oil ",
+                "Quantities": "1 Medium(110 gm)",
+                "Kcal": "163"
+            },
+            {
+                "Name": "Aloo Puri ",
+                "Quantities": "2 Number(90 gm)",
+                "Kcal": "244"
+            },
+            {
+                "Name": "Baigan Bhaja ",
+                "Quantities": "4 Number(107 gm)",
+                "Kcal": "259"
+            },
+            {
+                "Name": "Bajra Bhakri With Less Ghee ",
+                "Quantities": "1 Medium(60 gm)",
+                "Kcal": "130"
+            },
+            {
+                "Name": "Bajra Roti ",
+                "Quantities": "1 Large(85 gm)",
+                "Kcal": "248"
+            },
+            {
+                "Name": "Barley Bajra Bhakri ",
+                "Quantities": "1 Small(60 gm)",
+                "Kcal": "154"
+            },
+            {
+                "Name": "Bay Leaf Rice ",
+                "Quantities": "1 Medium Bowl(106 gm)",
+                "Kcal": "144"
+            },
+            {
+                "Name": "Butter Garlic Naan ",
+                "Quantities": "1 Number(70 gm)",
+                "Kcal": "197"
+            },
+            {
+                "Name": "Cabbage Paratha With Less Oil ",
+                "Quantities": "1 Medium(80 gm)",
+                "Kcal": "172"
+            },
+            {
+                "Name": "Capsicum Boondi Raita ",
+                "Quantities": "1 Large Bowl(185 gm)",
+                "Kcal": "164"
+            },
+            {
+                "Name": "Carrot Cucumber Raita ",
+                "Quantities": "1 Small Bowl(107 gm)",
+                "Kcal": "46"
+            },
+            {
+                "Name": "Cauli\u0000ower Paratha With Less Oil ",
+                "Quantities": "2 Large(200 gm)",
+                "Kcal": "401"
+            },
+            {
+                "Name": "Cauli\u0000ower Rice Saut\u00e9ed ",
+                "Quantities": "1 Large Bowl(120 gm)",
+                "Kcal": "107"
+            },
+            {
+                "Name": "Chawal ",
+                "Quantities": "1 Large Bowl(141 gm)",
+                "Kcal": "142"
+            },
+            {
+                "Name": "Cheese Pulao ",
+                "Quantities": "1 Large Bowl(150 gm)",
+                "Kcal": "226"
+            },
+            {
+                "Name": "Cheese Pulao ",
+                "Quantities": "1 Medium Bowl(113 gm)",
+                "Kcal": "102"
+            },
+            {
+                "Name": "Chicken Tikka Biryani ",
+                "Quantities": "1 Large Bowl(184 gm)",
+                "Kcal": "346"
+            },
+            {
+                "Name": "Coconut Rice ",
+                "Quantities": "1 Medium Bowl(74 gm)",
+                "Kcal": "113"
+            },
+            {
+                "Name": "Cucumber Corn Raita ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "68"
+            },
+            {
+                "Name": "Cucumber Raita ",
+                "Quantities": "1 Small Bowl(50 gm)",
+                "Kcal": "36"
+            },
+            {
+                "Name": "Cucumber Tomato Raita With Cow Milk Curd ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "59"
+            },
+            {
+                "Name": "Curd ",
+                "Quantities": "1 Large Bowl(185 gm)",
+                "Kcal": "128"
+            },
+            {
+                "Name": "Egg Biryani ",
+                "Quantities": "1 Large Bowl(184 gm)",
+                "Kcal": "263"
+            },
+            {
+                "Name": "Fenugreek Leaves Vegetable Pulao ",
+                "Quantities": "1 Medium Bowl(113 gm)",
+                "Kcal": "115"
+            },
+            {
+                "Name": "Garlic Jowar Rotla With Ghee ",
+                "Quantities": "1 Small(65 gm)",
+                "Kcal": "159"
+            },
+            {
+                "Name": "Ghee Bhat ",
+                "Quantities": "1 Large Bowl(141 gm)",
+                "Kcal": "256"
+            },
+            {
+                "Name": "Green Peas Cutlet ",
+                "Quantities": "2 Number(57 gm)",
+                "Kcal": "88"
+            },
+            {
+                "Name": "Handi Biryani ",
+                "Quantities": "1 Medium Bowl(138 gm)",
+                "Kcal": "147"
+            },
+            {
+                "Name": "Jeera Rice ",
+                "Quantities": "1 Large Bowl(240 gm)",
+                "Kcal": "239"
+            },
+            {
+                "Name": "Jowar Bajra Roti With Less Ghee ",
+                "Quantities": "1 Medium(60 gm)",
+                "Kcal": "170"
+            },
+            {
+                "Name": "Jowar Bajra Roti With Less Ghee ",
+                "Quantities": "1 Small(50 gm)",
+                "Kcal": "142"
+            },
+            {
+                "Name": "Khichdi With Potatoes ",
+                "Quantities": "1 Large Bowl(141 gm)",
+                "Kcal": "147"
+            },
+            {
+                "Name": "Makki Roti With Less Ghee ",
+                "Quantities": "2 Medium(120 gm)",
+                "Kcal": "328"
+            },
+            {
+                "Name": "Makki Roti With Less Oil ",
+                "Quantities": "2 Medium(170 gm)",
+                "Kcal": "455"
+            },
+            {
+                "Name": "Masoor Dal Khichdi ",
+                "Quantities": "1 Large Bowl(141 gm)",
+                "Kcal": "159"
+            },
+            {
+                "Name": "Masoor Moong Dal Khichdi ",
+                "Quantities": "1 Medium Bowl(106 gm)",
+                "Kcal": "93"
+            },
+            {
+                "Name": "Methi Mutton Gravy ",
+                "Quantities": "1 Medium Bowl(150 gm)",
+                "Kcal": "202"
+            },
+            {
+                "Name": "Methi Pulao ",
+                "Quantities": "1 Medium Bowl(72 gm)",
+                "Kcal": "146"
+            },
+            {
+                "Name": "Mini Methi Thalipeeth ",
+                "Quantities": "2 Medium(90 gm)",
+                "Kcal": "239"
+            },
+            {
+                "Name": "Mix Vegetable Paneer Paratha With Less Ghee ",
+                "Quantities": "1 Large(90 gm)",
+                "Kcal": "225"
+            },
+            {
+                "Name": "Mix Vegetable Rice with Paneer and Soya ",
+                "Quantities": "1 Medium Bowl(113 gm)",
+                "Kcal": "164"
+            },
+            {
+                "Name": "Mixed Sabji Paratha ",
+                "Quantities": "2 Medium(120 gm)",
+                "Kcal": "358"
+            },
+            {
+                "Name": "Mixed Vegetable Paratha With Less Ghee ",
+                "Quantities": "1 Medium(68 gm)",
+                "Kcal": "156"
+            },
+            {
+                "Name": "Mixed Vegetable Paratha With Less Oil ",
+                "Quantities": "1 Medium(70 gm)",
+                "Kcal": "156"
+            },
+            {
+                "Name": "Mixed Vegetable Paratha With Less Oil ",
+                "Quantities": "2 Medium(140 gm)",
+                "Kcal": "313"
+            },
+            {
+                "Name": "Mooli Paratha With Less Ghee ",
+                "Quantities": "1 Number(84 gm)",
+                "Kcal": "113"
+            },
+            {
+                "Name": "Mushroom Rice ",
+                "Quantities": "1 Medium Bowl(88 gm)",
+                "Kcal": "132"
+            },
+            {
+                "Name": "Palak Khichdi ",
+                "Quantities": "1 Medium Bowl(106 gm)",
+                "Kcal": "102"
+            },
+            {
+                "Name": "Palak Ragi Khichdi ",
+                "Quantities": "1 Large Bowl(141 gm)",
+                "Kcal": "127"
+            },
+            {
+                "Name": "Paneer Pulao ",
+                "Quantities": "1 Medium Bowl(113 gm)",
+                "Kcal": "150"
+            },
+            {
+                "Name": "Plain Naan With Butter ",
+                "Quantities": "1 Number(60 gm)",
+                "Kcal": "200"
+            },
+            {
+                "Name": "Pudina Paratha Without Oil ",
+                "Quantities": "2 Medium(110 gm)",
+                "Kcal": "229"
+            },
+            {
+                "Name": "Purple Cabbage Roti With Oil ",
+                "Quantities": "2 Number(60 gm)",
+                "Kcal": "124"
+            },
+            {
+                "Name": "Ragi Alsi Roti ",
+                "Quantities": "1 Medium(65 gm)",
+                "Kcal": "156"
+            },
+            {
+                "Name": "Ragi Alsi Roti ",
+                "Quantities": "2 Large(170 gm)",
+                "Kcal": "407"
+            },
+            {
+                "Name": "Ragi Bhakri With Less Oil ",
+                "Quantities": "1 Small(65 gm)",
+                "Kcal": "161"
+            },
+            {
+                "Name": "Ragi Bhakri With Oil ",
+                "Quantities": "1 Large(115 gm)",
+                "Kcal": "309"
+            },
+            {
+                "Name": "Ragi Mudde ",
+                "Quantities": "3 Number(135 gm)",
+                "Kcal": "155"
+            },
+            {
+                "Name": "Red Rice Without Salt ",
+                "Quantities": "1 Large Bowl(141 gm)",
+                "Kcal": "143"
+            },
+            {
+                "Name": "Red Rice Without Salt ",
+                "Quantities": "1 Medium Bowl(106 gm)",
+                "Kcal": "107"
+            },
+            {
+                "Name": "Rohu Fish Head Green Gram Dal Curry ",
+                "Quantities": "1 Medium Bowl(120 gm)",
+                "Kcal": "108"
+            },
+            {
+                "Name": "Roti with Less Ghee ",
+                "Quantities": "2 Large(170 gm)",
+                "Kcal": "418"
+            },
+            {
+                "Name": "Rumali Roti With Oil ",
+                "Quantities": "1 Number(73 gm)",
+                "Kcal": "216"
+            },
+            {
+                "Name": "Soya Atta Roti Without Oil ",
+                "Quantities": "1 Large(85 gm)",
+                "Kcal": "226"
+            },
+            {
+                "Name": "Soya Atta Roti Without Oil ",
+                "Quantities": "2 Number(58 gm)",
+                "Kcal": "80"
+            },
+            {
+                "Name": "Soya Atta Roti Without Oil ",
+                "Quantities": "2 Small(80 gm)",
+                "Kcal": "213"
+            },
+            {
+                "Name": "Soya Chunks and Vegetable Rice ",
+                "Quantities": "1 Large Bowl(141 gm)",
+                "Kcal": "230"
+            },
+            {
+                "Name": "Soya Matar Pulao ",
+                "Quantities": "1 Large Bowl(150 gm)",
+                "Kcal": "209"
+            },
+            {
+                "Name": "Surmai Biryani ",
+                "Quantities": "1 Large Bowl(184 gm)",
+                "Kcal": "331"
+            },
+            {
+                "Name": "Sweet Potato Spinach Khichdi ",
+                "Quantities": "1 Medium Bowl(106 gm)",
+                "Kcal": "97"
+            },
+            {
+                "Name": "Tamarind Rice ",
+                "Quantities": "1 Large Bowl(141 gm)",
+                "Kcal": "287"
+            },
+            {
+                "Name": "Thin Roti With Oil ",
+                "Quantities": "2 Small(60 gm)",
+                "Kcal": "184"
+            },
+            {
+                "Name": "Til Rice ",
+                "Quantities": "1 Large Bowl(141 gm)",
+                "Kcal": "200"
+            },
+            {
+                "Name": "Tur Dal Khichdi With Vegetables ",
+                "Quantities": "1 Medium Bowl(150 gm)",
+                "Kcal": "105"
+            },
+            {
+                "Name": "Vangi Bhaat ",
+                "Quantities": "1 Medium Bowl(106 gm)",
+                "Kcal": "122"
+            },
+            {
+                "Name": "Varichi Bhakri Without Oil ",
+                "Quantities": "2 Medium(90 gm)",
+                "Kcal": "442"
+            },
+            {
+                "Name": "Vegetable Cheese Pulao ",
+                "Quantities": "1 Medium Bowl(117 gm)",
+                "Kcal": "157"
+            },
+            {
+                "Name": "Vegetable Moong Dal Khichdi without Ghee ",
+                "Quantities": "1 Large Bowl(141 gm)",
+                "Kcal": "109"
+            },
+            {
+                "Name": "Vegetable Pulao With Dry Fruits ",
+                "Quantities": "1 Large Bowl(150 gm)",
+                "Kcal": "262"
+            },
+            {
+                "Name": "Wheat Ragi Roti Without Oil ",
+                "Quantities": "2 Small(80 gm)",
+                "Kcal": "214"
+            }
+        ],
+        "E3": [
+            {
+                "Name": "Adarak Chaas Bina Namak ",
+                "Quantities": "1 Medium Glass(160 gm)",
+                "Kcal": "28"
+            },
+            {
+                "Name": "Banana Kheer With Soy Milk ",
+                "Quantities": "1 Large Bowl(194 gm)",
+                "Kcal": "277"
+            },
+            {
+                "Name": "Banana Walnut Mu\u0000n Homemade ",
+                "Quantities": "1 Number(60 gm)",
+                "Kcal": "200"
+            },
+            {
+                "Name": "Bay Leaf Rice ",
+                "Quantities": "1 Medium Bowl(106 gm)",
+                "Kcal": "144"
+            },
+            {
+                "Name": "Beetroot Corn Raita ",
+                "Quantities": "1 Large Bowl(185 gm)",
+                "Kcal": "123"
+            },
+            {
+                "Name": "Black Chickpea Kadhi ",
+                "Quantities": "1 Medium Bowl(134 gm)",
+                "Kcal": "107"
+            },
+            {
+                "Name": "Boiled Egg Bhurji ",
+                "Quantities": "1 Large Bowl(160 gm)",
+                "Kcal": "158"
+            },
+            {
+                "Name": "Bottle Gourd Tomato Curry ",
+                "Quantities": "1 Large Bowl(178 gm)",
+                "Kcal": "84"
+            },
+            {
+                "Name": "Cabbage Pulao ",
+                "Quantities": "1 Medium Bowl(113 gm)",
+                "Kcal": "150"
+            },
+            {
+                "Name": "Capsicum Gravy ",
+                "Quantities": "1 Large Bowl(178 gm)",
+                "Kcal": "117"
+            },
+            {
+                "Name": "Capsicum Gravy ",
+                "Quantities": "1 Medium Bowl(134 gm)",
+                "Kcal": "87"
+            },
+            {
+                "Name": "Carrot Cucumber Tomato Beetroot Salad ",
+                "Quantities": "1 Medium Bowl(92 gm)",
+                "Kcal": "25"
+            },
+            {
+                "Name": "Carrot Rasam ",
+                "Quantities": "1 Medium Bowl(136 ml)",
+                "Kcal": "45"
+            },
+            {
+                "Name": "Chaash Kala Namak Sahit ",
+                "Quantities": "1 Large Glass(250 ml)",
+                "Kcal": "33"
+            },
+            {
+                "Name": "Chauraee Saag ",
+                "Quantities": "1 Medium Bowl(78 gm)",
+                "Kcal": "40"
+            },
+            {
+                "Name": "Chawal ",
+                "Quantities": "1 Medium Bowl(119 gm)",
+                "Kcal": "107"
+            },
+            {
+                "Name": "Corn Kadhi ",
+                "Quantities": "1 Large Bowl(178 gm)",
+                "Kcal": "134"
+            },
+            {
+                "Name": "Cow Milk Curd With Pink Salt ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "96"
+            },
+            {
+                "Name": "Cucumber Soya Curd Raita ",
+                "Quantities": "1 Large Bowl(185 gm)",
+                "Kcal": "125"
+            },
+            {
+                "Name": "Curd With Salt ",
+                "Quantities": "1 Large Bowl(185 gm)",
+                "Kcal": "128"
+            },
+            {
+                "Name": "Curd With Salt ",
+                "Quantities": "1 Medium Bowl(120 gm)",
+                "Kcal": "83"
+            },
+            {
+                "Name": "Curd With Salt ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "96"
+            },
+            {
+                "Name": "Curd ",
+                "Quantities": "1 Large Bowl(185 gm)",
+                "Kcal": "128"
+            },
+            {
+                "Name": "Curd ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "96"
+            },
+            {
+                "Name": "Dal Fry ",
+                "Quantities": "1 Large Bowl(200 gm)",
+                "Kcal": "229"
+            },
+            {
+                "Name": "Dal Palak ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "129"
+            },
+            {
+                "Name": "Dalma ",
+                "Quantities": "1 Large Bowl(198 gm)",
+                "Kcal": "171"
+            },
+            {
+                "Name": "Dates Almond Walnut Energy Ladoo ",
+                "Quantities": "1 Medium(25 gm)",
+                "Kcal": "111"
+            },
+            {
+                "Name": "Dhania Chutney ",
+                "Quantities": "1 Small Bowl(84 gm)",
+                "Kcal": "89"
+            },
+            {
+                "Name": "Dhania Chutney ",
+                "Quantities": "2 Tbsp(25 gm)",
+                "Kcal": "27"
+            },
+            {
+                "Name": "Duck Curry With Less Oil ",
+                "Quantities": "1 Large Bowl(200 gm)",
+                "Kcal": "181"
+            },
+            {
+                "Name": "Duck Curry With Oil ",
+                "Quantities": "1 Large Bowl(200 gm)",
+                "Kcal": "218"
+            },
+            {
+                "Name": "Egg Vegetable Pulao ",
+                "Quantities": "1 Large Bowl(121 gm)",
+                "Kcal": "225"
+            },
+            {
+                "Name": "Fresh Peas Curry ",
+                "Quantities": "1 Medium Bowl(134 gm)",
+                "Kcal": "76"
+            },
+            {
+                "Name": "Garlic Chutney ",
+                "Quantities": "2 Tbsp(25 gm)",
+                "Kcal": "65"
+            },
+            {
+                "Name": "Gatte Ki Kadhi ",
+                "Quantities": "1 Medium Bowl(150 gm)",
+                "Kcal": "252"
+            },
+            {
+                "Name": "Hari Chaurai Sabji ",
+                "Quantities": "1 Medium Bowl(78 gm)",
+                "Kcal": "51"
+            },
+            {
+                "Name": "Hot Garlic Chicken ",
+                "Quantities": "1 Large Bowl(200 gm)",
+                "Kcal": "291"
+            },
+            {
+                "Name": "Jeera Buttermilk ",
+                "Quantities": "1 Large Glass(250 ml)",
+                "Kcal": "38"
+            },
+            {
+                "Name": "Jeera Chaas Bina Namak ",
+                "Quantities": "1 Large Glass(200 ml)",
+                "Kcal": "30"
+            },
+            {
+                "Name": "Jeera Rice ",
+                "Quantities": "1 Medium Bowl(180 gm)",
+                "Kcal": "179"
+            },
+            {
+                "Name": "Kadhi Pakora ",
+                "Quantities": "1 Large Bowl(200 gm)",
+                "Kcal": "325"
+            },
+            {
+                "Name": "Kadhi ",
+                "Quantities": "1 Large Bowl(200 gm)",
+                "Kcal": "153"
+            },
+            {
+                "Name": "Kadhi ",
+                "Quantities": "1 Medium Bowl(134 gm)",
+                "Kcal": "114"
+            },
+            {
+                "Name": "Khatti Dal ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "130"
+            },
+            {
+                "Name": "Kofta Kadhi ",
+                "Quantities": "1 Medium Bowl(134 gm)",
+                "Kcal": "176"
+            },
+            {
+                "Name": "Kulath Dal ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "114"
+            },
+            {
+                "Name": "Lasooni Dal Tadka ",
+                "Quantities": "1 Medium Bowl(150 gm)",
+                "Kcal": "220"
+            },
+            {
+                "Name": "Lati Chingri ",
+                "Quantities": "1 Large Bowl(120 gm)",
+                "Kcal": "127"
+            },
+            {
+                "Name": "Lentil Soup ",
+                "Quantities": "1 Large Soup Bowl(204 gm)",
+                "Kcal": "130"
+            },
+            {
+                "Name": "Makka Shimla Mirch Raita ",
+                "Quantities": "1 Large Bowl(185 gm)",
+                "Kcal": "108"
+            },
+            {
+                "Name": "Mangur Machher Jhol Kakrol Er Sathe ",
+                "Quantities": "1 Medium Bowl(120 gm)",
+                "Kcal": "154"
+            },
+            {
+                "Name": "Masoor Daal ",
+                "Quantities": "1 Medium Bowl(144 gm)",
+                "Kcal": "118"
+            },
+            {
+                "Name": "Masoor Dal ",
+                "Quantities": "1 Medium Bowl(144 gm)",
+                "Kcal": "118"
+            },
+            {
+                "Name": "Mihidana ",
+                "Quantities": "1 Medium Bowl(142 gm)",
+                "Kcal": "371"
+            },
+            {
+                "Name": "Mishti Doi ",
+                "Quantities": "1 Small Bowl(116 gm)",
+                "Kcal": "139"
+            },
+            {
+                "Name": "Moong Dal Palak Curry ",
+                "Quantities": "1 Large Bowl(200 gm)",
+                "Kcal": "192"
+            },
+            {
+                "Name": "Palak Sambhar ",
+                "Quantities": "1 Medium Bowl(149 gm)",
+                "Kcal": "93"
+            },
+            {
+                "Name": "Palak Tur Dal With Oil ",
+                "Quantities": "1 Large Bowl(186 gm)",
+                "Kcal": "134"
+            },
+            {
+                "Name": "Patta Gobi Capsicum Sabji ",
+                "Quantities": "1 Large Bowl(120 gm)",
+                "Kcal": "106"
+            },
+            {
+                "Name": "Patta Gobi Capsicum Sabji ",
+                "Quantities": "1 Medium Bowl(90 gm)",
+                "Kcal": "80"
+            },
+            {
+                "Name": "Phool Gobi Shimlamirch Sabji ",
+                "Quantities": "1 Medium Bowl(90 gm)",
+                "Kcal": "75"
+            },
+            {
+                "Name": "Pineapple Boondi Honey Raita ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "167"
+            },
+            {
+                "Name": "Pomfret Curry With Less Oil ",
+                "Quantities": "1 Medium Bowl(120 gm)",
+                "Kcal": "156"
+            },
+            {
+                "Name": "Potato Catla Fish Curry With Bori ",
+                "Quantities": "1 Medium Bowl(120 gm)",
+                "Kcal": "148"
+            },
+            {
+                "Name": "Punjabi Fish Curry ",
+                "Quantities": "1 Large Bowl(120 gm)",
+                "Kcal": "186"
+            },
+            {
+                "Name": "Rajma Pulao ",
+                "Quantities": "1 Medium Bowl(113 gm)",
+                "Kcal": "135"
+            },
+            {
+                "Name": "Red Amaranth Lentil Dal Gravy With Ghee ",
+                "Quantities": "1 Large Bowl(178 gm)",
+                "Kcal": "147"
+            },
+            {
+                "Name": "Sev Tomato Curry ",
+                "Quantities": "1 Medium Bowl(128 gm)",
+                "Kcal": "175"
+            },
+            {
+                "Name": "Soya Matar Kadhi ",
+                "Quantities": "1 Large Bowl(178 gm)",
+                "Kcal": "267"
+            },
+            {
+                "Name": "Sweet Curd ",
+                "Quantities": "1 Large Bowl(185 gm)",
+                "Kcal": "162"
+            },
+            {
+                "Name": "Sweet Curd ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "121"
+            },
+            {
+                "Name": "Til Rice ",
+                "Quantities": "1 Medium Bowl(100 gm)",
+                "Kcal": "150"
+            },
+            {
+                "Name": "Toor Palak Dal ",
+                "Quantities": "1 Large Bowl(186 gm)",
+                "Kcal": "197"
+            },
+            {
+                "Name": "Whole Wheat Bread Vegetable Paneer Sandwich ",
+                "Quantities": "1 Bread (4\")(170 gm)",
+                "Kcal": "371"
+            }
+        ],
+        "E4": [
+            {
+                "Name": "Aloo Beans Sambhar ",
+                "Quantities": "1 Medium Bowl(160 gm)",
+                "Kcal": "82"
+            },
+            {
+                "Name": "Beetroot Kheer ",
+                "Quantities": "1 Medium Bowl(146 gm)",
+                "Kcal": "184"
+            },
+            {
+                "Name": "Chawal ",
+                "Quantities": "1 Medium Bowl(106 gm)",
+                "Kcal": "107"
+            },
+            {
+                "Name": "Chawal ",
+                "Quantities": "1 Medium Bowl(119 gm)",
+                "Kcal": "107"
+            },
+            {
+                "Name": "Colocasia Stem Dry Vegetable With Oil ",
+                "Quantities": "1 Medium Bowl(90 gm)",
+                "Kcal": "85"
+            },
+            {
+                "Name": "Cow Milk Curd With Pink Salt ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "96"
+            },
+            {
+                "Name": "Curd With Salt ",
+                "Quantities": "1 Large Bowl(185 gm)",
+                "Kcal": "128"
+            },
+            {
+                "Name": "Curd ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "96"
+            },
+            {
+                "Name": "Dudhi Palak Kadhi ",
+                "Quantities": "1 Medium Bowl(134 gm)",
+                "Kcal": "93"
+            },
+            {
+                "Name": "Methi Dal ",
+                "Quantities": "1 Medium Bowl(150 gm)",
+                "Kcal": "102"
+            },
+            {
+                "Name": "Mooli Moong Dal ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "113"
+            },
+            {
+                "Name": "Patta Gobi Capsicum Sabji ",
+                "Quantities": "1 Large Bowl(120 gm)",
+                "Kcal": "106"
+            },
+            {
+                "Name": "Patta Gobi Capsicum Sabji ",
+                "Quantities": "1 Medium Bowl(90 gm)",
+                "Kcal": "80"
+            },
+            {
+                "Name": "Plain Boiled Moong Dal ",
+                "Quantities": "1 Medium Bowl(150 gm)",
+                "Kcal": "105"
+            },
+            {
+                "Name": "Pudina Moong Dal ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "112"
+            },
+            {
+                "Name": "Red Parboiled Rice ",
+                "Quantities": "1 Medium Bowl(106 gm)",
+                "Kcal": "87"
+            },
+            {
+                "Name": "Rice ",
+                "Quantities": "1 Medium Bowl(119 gm)",
+                "Kcal": "107"
+            },
+            {
+                "Name": "Shahi Tukda with Rabdi ",
+                "Quantities": "1 Number(60 gm)",
+                "Kcal": "163"
+            },
+            {
+                "Name": "Strawberry Mu\u0000ns Homemade ",
+                "Quantities": "1 Number(35 gm)",
+                "Kcal": "198"
+            },
+            {
+                "Name": "Sweet Curd ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "121"
+            },
+            {
+                "Name": "Tomato Chutney ",
+                "Quantities": "2 Tbsp(25 gm)",
+                "Kcal": "16"
+            }
+        ],
+        "E5": [
+            {
+                "Name": "Ambadi Dal With Ghee ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "99"
+            },
+            {
+                "Name": "Ambadi Dal ",
+                "Quantities": "1 Medium Bowl(139 gm)",
+                "Kcal": "76"
+            },
+            {
+                "Name": "Methi Dal ",
+                "Quantities": "1 Medium Bowl(150 gm)",
+                "Kcal": "102"
+            },
+            {
+                "Name": "Peanut Aamti ",
+                "Quantities": "1 Medium Bowl(134 gm)",
+                "Kcal": "98"
+            },
+            {
+                "Name": "Red Amaranth Lentil Dal Gravy With Less Ghee ",
+                "Quantities": "1 Medium Bowl(78 gm)",
+                "Kcal": "56"
+            },
+            {
+                "Name": "Tomato Rasam ",
+                "Quantities": "1 Large Bowl(100 gm)",
+                "Kcal": "51"
+            }
+        ]
+    }
+}

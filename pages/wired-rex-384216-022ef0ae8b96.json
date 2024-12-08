@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "wired-rex-384216",
+  "private_key_id": "022ef0ae8b969563b59543c91e9c3190d0a1cde9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDA+xORJHGZPLxS\nuESgd7r6jdk+HF8XesDgJyjP0TRAAyGkvVK7SAWf9PvrbuNoWhMwkEbfWYCDGBvP\ntjxnkW0FikJP8iDbQ867ttDxauv4S3K1QwhE8/kImOZvoWzZPfTO7yj6lVm0c4pA\n8mT/VZimulJKoBq1OquG96HA2sd/TQKAG23O52tMcwW+tqMt2liksR5mFyUhOf5/\nqHhTFYyDjylfGYiU/gAX9yF+ixhnftFTuHWAIIcmlkTJ+UaPp8HSzkYxQs57oH1l\n1zqUi+ok8rhfX2xzpeUNv+uhDN7q0nG+/W7B7c/ltatc+o1WIf2AP75QH5F9cGza\n5ymoMMnvAgMBAAECggEAB6uzOmi1bz7fyXXznGFF+GGdCf/8s6U4d3B3CdOp/QVi\n1/aCjFkviA0n2lLdDS/PZXXGq2gWWJ+js1zuB7vbFoZJXn4kWjLWy9VXdtEmMgdl\nttjEQmFkO7hAKJ3FAtmYmoUdHuDC4Q5ap3w7EX8ogzASx06X4S5E1SeQsWbA2Ul3\njVzPSmvCOEdjB3n9uklfSjIHsliFFmjvL53WdU9+81cHdAUlZja3f/t0z9OjTq/7\nMhRUKTnYG9kLq9HvBwbLWBK0JGQgrdIlA5gnSGNQcVnlJkEid0+gEynJM+e3hiDU\nTfQTZyTDmS+KIAFhmRfczUawVMqJ6flgHnQTQ+eRSQKBgQD6YJuRfpcBlf3nh2PN\n0LYFRWwfgAtAiZMG+w1bt2cd/ZQEg1AjtuLRB6nLWUaxvkTUMGR5G72+SUbErrC2\nFdhzYfLFqIlqnYMR2eW1R3FIfrENQFBi9moqLful7R9TOIwhMp4p/9TVJBHfnnyp\nSbrwSm9X2Dd/eUomkQSzFp1XswKBgQDFUIB7++SkrC1ycvkXLdzsU6RUp1PJLmZx\nBum48fgcSQ3WCgOg4HQM5PfcEDFSrgN1hBMzXsipDfC29LN/+E3YVIzc5qVvE2Vf\nMKG8R9ZAGQFygGs+gzgOVAlrkXEwUXEFSvvIIIVmRYIOz4qbYN8mpjCMpjSnVxAn\ncqYNnZTm1QKBgQDtM2kuxcc58WfCWTnsWraW99YfYadHVQ69pkpZgb9nYj1AqUbb\nDwCDF8d8pu+apK+Advg45Fc2VyV8YCN53ehaJ4lgSPMm1mK+HrjIrQ5dp+kErNF7\ncAfUPgwSfjsXFJNtQA8nqv9vjeSA/h0MJJW94Ebr6iNp2Pau4uSY5evakQKBgQCL\nl7lefcWzjrAUYSzCbkr20vHWhg6rrO0Cl65wjpdGg5SLUchhX4oauT51bOtIIB4I\nXKks1ajGmTssZJA9P9Dq9F43xeFSZPl5z7EMwBHehRJWDG5S6oiU8nU7qcjXMzbv\nVK4uVnup8BDkI4ZfCLi24ipExy1HGjwufFjoFw0KBQKBgCB1L5s9nqGdP7H5wAD4\n1T/bTIkZoX8uM2AITSahX1czGZRlKNsDT9UptkyOMBuvvNBUgFkhTB27Sknpil1O\nHb3U/dh+7nUSHD0QeZJaeuJy3KT3qJ1x8+vIGHeTxTq5xYujHnn6cV6ayUk+Uf6K\ndx7Qa2jom8SwPTsvqM81zEt0\n-----END PRIVATE KEY-----\n",
+  "client_email": "dr-ajayshukla-gmail-com@wired-rex-384216.iam.gserviceaccount.com",
+  "client_id": "115509889126583893948",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dr-ajayshukla-gmail-com%40wired-rex-384216.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

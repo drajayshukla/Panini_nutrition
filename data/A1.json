@@ -1,0 +1,234 @@
+{
+    "A1": [
+        {
+            "Name": "Almond Milk Homemade",
+            "Quantities": "1 Large Glass (220 ml)",
+            "Kcal": "282"
+        },
+        {
+            "Name": "Almond Milk Homemade",
+            "Quantities": "1 Medium Glass (176 ml)",
+            "Kcal": "226"
+        },
+        {
+            "Name": "Apple Date Milkshake With Honey",
+            "Quantities": "1 Medium Glass (160 ml)",
+            "Kcal": "168"
+        },
+        {
+            "Name": "Banana Smoothie With Sugar",
+            "Quantities": "1 Large Bowl (160 gm)",
+            "Kcal": "157"
+        },
+        {
+            "Name": "Brown Wheat Bread Bell Pepper Paneer Sandwich",
+            "Quantities": "1 Bread (5.5\") (214 gm)",
+            "Kcal": "545"
+        },
+        {
+            "Name": "Cardamom Tea Without Sugar",
+            "Quantities": "1 Medium Cup (150 ml)",
+            "Kcal": "41"
+        },
+        {
+            "Name": "Cinnamon Ginger Tea With Honey",
+            "Quantities": "1 Large Cup (200 ml)",
+            "Kcal": "57"
+        },
+        {
+            "Name": "Coffee Cows Milk With Stevia",
+            "Quantities": "1 Medium Cup (150 ml)",
+            "Kcal": "85"
+        },
+        {
+            "Name": "Coffee Skim Milk With Stevia",
+            "Quantities": "1 Medium Cup (150 ml)",
+            "Kcal": "56"
+        },
+        {
+            "Name": "Coffee With Cow Milk Without Sugar",
+            "Quantities": "1 Medium Cup (132 ml)",
+            "Kcal": "69"
+        },
+        {
+            "Name": "Coffee With Jaggery",
+            "Quantities": "1 Large Glass (220 ml)",
+            "Kcal": "128"
+        },
+        {
+            "Name": "Coffee With Skim Milk Without Sugar",
+            "Quantities": "1 Large Cup (176 ml)",
+            "Kcal": "47"
+        },
+        {
+            "Name": "Coffee With Skim Milk Without Sugar",
+            "Quantities": "1 Large Cup (176 ml)",
+            "Kcal": "48"
+        },
+        {
+            "Name": "Coffee With Stevia",
+            "Quantities": "1 Large Cup (176 ml)",
+            "Kcal": "91"
+        },
+        {
+            "Name": "Coffee With Stevia",
+            "Quantities": "1 Medium Cup (132 ml)",
+            "Kcal": "68"
+        },
+        {
+            "Name": "Coffee With Stevia",
+            "Quantities": "1 Medium Cup (132 ml)",
+            "Kcal": "68.36"
+        },
+        {
+            "Name": "Coffee Without Sugar",
+            "Quantities": "1 Large Cup (176 ml)",
+            "Kcal": "92"
+        },
+        {
+            "Name": "Coffee",
+            "Quantities": "1 Large Cup (176 ml)",
+            "Kcal": "109"
+        },
+        {
+            "Name": "Coffee",
+            "Quantities": "1 Medium Cup (132 ml)",
+            "Kcal": "81"
+        },
+        {
+            "Name": "Cow Milk Ginger Tea With Stevia",
+            "Quantities": "1 Medium Cup (150 ml)",
+            "Kcal": "41"
+        },
+        {
+            "Name": "Cow Milk Ginger Tea Without Sugar",
+            "Quantities": "1 Large Cup (200 ml)",
+            "Kcal": "54"
+        },
+        {
+            "Name": "Cow Milk Masala Tea Without Sugar",
+            "Quantities": "1 Large Cup (200 ml)",
+            "Kcal": "50"
+        },
+        {
+            "Name": "Cow Milk Tea With Cinnamon Ginger Without Sugar",
+            "Quantities": "1 Large Cup (200 ml)",
+            "Kcal": "64"
+        },
+        {
+            "Name": "Cow Milk Tea With Cinnamon Ginger Without Sugar",
+            "Quantities": "1 Medium Cup (150 ml)",
+            "Kcal": "48"
+        },
+        {
+            "Name": "Cow Milk Tea With Jaggery",
+            "Quantities": "1 Large Cup (200 ml)",
+            "Kcal": "67"
+        },
+        {
+            "Name": "Cow Milk Tea With Jaggery",
+            "Quantities": "1 Medium Cup (150 ml)",
+            "Kcal": "50"
+        },
+        {
+            "Name": "Cow Milk Tea Without Sugar",
+            "Quantities": "1 Large Cup (200 ml)",
+            "Kcal": "53"
+        },
+        {
+            "Name": "Cow Milk Tea Without Sugar",
+            "Quantities": "1 Medium Cup (150 ml)",
+            "Kcal": "40"
+        },
+        {
+            "Name": "Cow Milk With Honey and Almond",
+            "Quantities": "1 Large Glass (200 ml)",
+            "Kcal": "234"
+        },
+        {
+            "Name": "Cow Milk With Stevia",
+            "Quantities": "1 Large Glass (220 ml)",
+            "Kcal": "157"
+        },
+        {
+            "Name": "Coffee With Skim Milk And Stevia",
+            "Quantities": "1 Large Cup (176 ml)",
+            "Kcal": "47"
+        },
+        {
+            "Name": "Cucumber Dosa",
+            "Quantities": "2 Large (140 gm)",
+            "Kcal": "220"
+        },
+        {
+            "Name": "Dry Fruit Milkshake Without Dates",
+            "Quantities": "1 Large Glass (200 ml)",
+            "Kcal": "266"
+        },
+        {
+            "Name": "Elaichi Chai",
+            "Quantities": "1 Large Cup (200 ml)",
+            "Kcal": "75"
+        },
+        {
+            "Name": "Elaichi Chai",
+            "Quantities": "1 Medium Cup (150 ml)",
+            "Kcal": "56"
+        },
+        {
+            "Name": "Ginger Tea With Lemongrass And Honey",
+            "Quantities": "1 Large Cup (200 ml)",
+            "Kcal": "53"
+        },
+        {
+            "Name": "Mango Soy Milk Shake",
+            "Quantities": "1 Large Glass (200 ml)",
+            "Kcal": "142"
+        },
+        {
+            "Name": "Milk",
+            "Quantities": "1 Large Glass (220 ml)",
+            "Kcal": "160"
+        },
+        {
+            "Name": "Ragi Almond Milk Porridge",
+            "Quantities": "1 Large Bowl (194 gm)",
+            "Kcal": "173"
+        },
+        {
+            "Name": "Ragi Nutty Milk With Stevia",
+            "Quantities": "1 Medium Glass (160 ml)",
+            "Kcal": "197"
+        },
+        {
+            "Name": "Skim Milk Cardamom Tea Without Sugar",
+            "Quantities": "1 Medium Cup (150 ml)",
+            "Kcal": "20"
+        },
+        {
+            "Name": "Skimmed Milk Cardamom Tea With Jaggery",
+            "Quantities": "1 Large Cup (176 ml)",
+            "Kcal": "83"
+        },
+        {
+            "Name": "Tea Without Sugar",
+            "Quantities": "1 Large Cup (200 ml)",
+            "Kcal": "53"
+        },
+        {
+            "Name": "Tea with Jaggery",
+            "Quantities": "1 Small Cup (100 ml)",
+            "Kcal": "40"
+        },
+        {
+            "Name": "Tea",
+            "Quantities": "1 Large Cup (200 ml)",
+            "Kcal": "74"
+        },
+        {
+            "Name": "Tea",
+            "Quantities": "1 Medium Cup (150 ml)",
+            "Kcal": "56"
+        }
+    ]
+}
