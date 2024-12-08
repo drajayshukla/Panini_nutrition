@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the dataset
-data_path = "cleaned_food_data.csv"  # Update with your file path if necessary
+data_path = "data/cleaned_food_data.csv"  # Update with your file path if necessary
 food_data = pd.read_csv(data_path)
 
 # Set page title
