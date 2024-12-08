@@ -3,7 +3,7 @@ import pandas as pd
 import random
 
 # Load the dataset
-data_path = "cleaned_food_data.csv"  # Update with your file path
+data_path = "data/cleaned_food_data.csv"  # Update with your file path
 food_data = pd.read_csv(data_path)
 
 # Ensure numerical columns for calculations
