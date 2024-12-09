@@ -108,10 +108,12 @@ def generate_monthly_chart(total_calories, calorie_distribution, veg_only):
 class HindiPDF(FPDF):
     def __init__(self):
         super().__init__()
-        font_path = Path("../DejaVuSans.ttf")
+        font_path = Path("/Users/dr.ajayshukla/PycharmProjects/Panini_nutrition/DejaVuSans.ttf")
+
         if not font_path.exists():
-            raise FileNotFoundError("DejaVuSans.ttf font file not found!")
-        self.add_font("DejaVu", style="", fname="DejaVuSans.ttf", uni=True)
+            raise FileNotFoundError(f"{font_path} font file not found! Please add it to the project folder.")
+
+        self.add_font("DejaVu", style="", fname=str(font_path), uni=True)
 
     def add_wrapped_cell(self, width, height, text, border=1, align="L", fill=False):
         x, y = self.get_x(), self.get_y()
