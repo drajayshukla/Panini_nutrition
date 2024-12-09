@@ -20,7 +20,7 @@ st.title("Recipe Explorer")
 # Sidebar - File Selection
 st.sidebar.header("Select Files")
 file_options = ["All"] + [f"recipechunk_{i}.csv" for i in range(1, 36)]
-selected_files = st.sidebar.multiselect("Choose files to load:", file_options, default="recipechunk_2")
+selected_files = st.sidebar.multiselect("Choose files to load:", file_options, default="recipechunk_2.csv")
 
 # Determine files to load
 file_paths = get_file_paths()
