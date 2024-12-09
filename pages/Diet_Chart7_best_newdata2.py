@@ -142,33 +142,23 @@ def create_pdf(monthly_chart, file_path, total_calories, calorie_distribution, v
         pdf.set_font("DejaVu", size=12)
         pdf.cell(0, 10, f"दिन {day}: आहार चार्ट", ln=True, border=0)
 
-        # Add table headers
+        # Add details for each meal
         pdf.set_font("DejaVu", size=10)
         pdf.ln(5)  # Add some spacing
         pdf.set_fill_color(230, 230, 250)  # Light lavender for table headers
-        pdf.cell(90, 10, "भोजन का नाम", border=1, fill=True, align="C")
-        pdf.cell(30, 10, "मात्रा", border=1, fill=True, align="C")
-        pdf.cell(30, 10, "कैलोरी (kcal)", border=1, fill=True, align="C")
-        pdf.cell(30, 10, "प्रोटीन (g)", border=1, fill=True, align="C")
+        pdf.cell(70, 10, "भोजन का नाम", border=1, fill=True, align="C")
+        pdf.cell(40, 10, "मात्रा", border=1, fill=True, align="C")
+        pdf.cell(40, 10, "कैलोरी (kcal)", border=1, fill=True, align="C")
+        pdf.cell(40, 10, "प्रोटीन (g)", border=1, fill=True, align="C")
         pdf.ln()
 
         # Loop through food items and add them
         for item in daily_data["daily_chart"]:
-            pdf.set_font("DejaVu", size=10)
-
-            # Use multi_cell for wrapping long text
-            y_before = pdf.get_y()  # Save current Y position
-            pdf.multi_cell(90, 10, item["Name"], border=1, align="L")
-            y_after = pdf.get_y()  # Calculate the new Y position after wrapping
-
-            # Adjust the row height for the other cells
-            row_height = y_after - y_before
-            pdf.set_xy(pdf.get_x() + 90, y_before)  # Move cursor to the correct position
-
-            pdf.cell(30, row_height, item["Quantities"], border=1, align="L")
-            pdf.cell(30, row_height, f"{item['Kcal']:.2f}", border=1, align="R")
-            pdf.cell(30, row_height, f"{item['Protein Content (g)']:.2f}", border=1, align="R")
-            pdf.ln(row_height)  # Move to the next line
+            pdf.cell(70, 10, item["Name"], border=1, align="L")
+            pdf.cell(40, 10, item["Quantities"], border=1, align="L")
+            pdf.cell(40, 10, f"{item['Kcal']:.2f}", border=1, align="R")
+            pdf.cell(40, 10, f"{item['Protein Content (g)']:.2f}", border=1, align="R")
+            pdf.ln()
 
     # Output the PDF to the specified file path
     pdf.output(file_path)
