@@ -108,7 +108,7 @@ def generate_monthly_chart(total_calories, calorie_distribution, veg_only):
 class HindiPDF(FPDF):
     def __init__(self):
         super().__init__()
-        font_path = Path("/Users/dr.ajayshukla/PycharmProjects/Panini_nutrition/DejaVuSans.ttf")
+        font_path = Path(__file__).parent / "DejaVuSans.ttf"
 
         if not font_path.exists():
             raise FileNotFoundError(f"{font_path} font file not found! Please add it to the project folder.")
