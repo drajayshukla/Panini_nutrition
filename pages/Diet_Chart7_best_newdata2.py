@@ -95,10 +95,13 @@ def generate_monthly_chart(total_calories, calorie_distribution, veg_only):
 class HindiPDF(FPDF):
     def __init__(self):
         super().__init__()
-        font_path = Path("/Users/dr.ajayshukla/PycharmProjects/Panini_nutrition/DejaVuSans.ttf")
+        from pathlib import Path
+
+        font_path = Path(__file__).resolve().parent.parent / "DejaVuSans.ttf"
+        print(f"Resolved font path: {font_path}")
+
         if not font_path.exists():
-            raise FileNotFoundError(f"{font_path} font file not found! Please add it to the project folder.")
-        self.add_font("DejaVu", style="", fname=str(font_path), uni=True)
+            raise FileNotFoundError(f"{font_path} font file not found! Please ensure it is in the correct folder.")
 
     def add_wrapped_cell(self, width, height, text, border=1, align="L", fill=False):
         x, y = self.get_x(), self.get_y()
