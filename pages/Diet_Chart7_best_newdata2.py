@@ -19,11 +19,9 @@ diet_data["Protein Content (g)"] = pd.to_numeric(diet_data["Protein Content (g)"
 def select_items(meal_type, mandatory_subtypes, optional_subtypes=None, prob_random=None, veg_only=False, calorie_distribution=None):
     items = []
 
-    # Skip this meal type if its calorie allocation is 0
     if calorie_distribution and calorie_distribution.get(meal_type, 0) == 0:
-        return items  # Return an empty list
+        return items  # Skip this meal type if its calorie allocation is 0
 
-    # Select one item from each mandatory subtype
     for subtype in mandatory_subtypes:
         choices = diet_data[diet_data["subcode"] == subtype]
         if veg_only:
@@ -31,7 +29,6 @@ def select_items(meal_type, mandatory_subtypes, optional_subtypes=None, prob_ran
         if not choices.empty:
             items.append(choices.sample(1).to_dict('records')[0])
 
-    # Optionally select one item from optional subtypes based on probability
     if optional_subtypes and prob_random and random.random() < prob_random:
         random_subtype = random.choice(optional_subtypes)
         random_choice = diet_data[diet_data["subcode"] == random_subtype]
@@ -46,12 +43,12 @@ def select_items(meal_type, mandatory_subtypes, optional_subtypes=None, prob_ran
 # Function to generate a daily diet chart
 def generate_daily_chart(total_calories, calorie_distribution, veg_only):
     meal_structure = {
-        "A": (["A1", "A2"], ["A3"], 0.3),  # Breakfast
-        "B": (["B1", "B2"], None, None),   # Morning Snack
-        "C": (["C1", "C2", "C3", "C4"], None, None),  # Lunch
-        "D": (["D1"], ["D3"], 0.1),  # Evening Snack
-        "E": (["E1"], ["E3"], 0.5),  # Dinner
-        "F": (["F1"], None, None)         # Bedtime Snack
+        "A": (["A1", "A2"], ["A3"], 0.3),
+        "B": (["B1", "B2"], None, None),
+        "C": (["C1", "C2", "C3", "C4"], None, None),
+        "D": (["D1"], ["D3"], 0.1),
+        "E": (["E1"], ["E3"], 0.5),
+        "F": (["F1"], None, None)
     }
 
     daily_chart = []
@@ -62,28 +59,18 @@ def generate_daily_chart(total_calories, calorie_distribution, veg_only):
         if calorie_distribution.get(meal_type, 0) == 0:
             continue
 
-        items = select_items(
-            meal_type,
-            mandatory_subtypes,
-            optional_subtypes,
-            prob_random,
-            veg_only,
-            calorie_distribution
-        )
+        items = select_items(meal_type, mandatory_subtypes, optional_subtypes, prob_random, veg_only, calorie_distribution)
         for item in items:
             daily_chart.append(item)
             total_calories_calculated += item["Kcal"]
             total_protein_calculated += item["Protein Content (g)"]
 
-    # Calculate adjustment factor
     adjustment_factor = total_calories / total_calories_calculated if total_calories_calculated > 0 else 1
 
-    # Scale items based on adjustment factor
     for item in daily_chart:
         item["Kcal"] = round(item["Kcal"] * adjustment_factor, 2)
         item["Protein Content (g)"] = round(item["Protein Content (g)"] * adjustment_factor, 2)
 
-    # Recalculate total calories and protein after adjustment
     total_calories_adjusted = sum(item["Kcal"] for item in daily_chart)
     total_protein_adjusted = sum(item["Protein Content (g)"] for item in daily_chart)
 
@@ -93,7 +80,7 @@ def generate_daily_chart(total_calories, calorie_distribution, veg_only):
 # Generate the monthly diet chart
 def generate_monthly_chart(total_calories, calorie_distribution, veg_only):
     monthly_chart = []
-    for _ in range(2):  # For 7 days (can be extended)
+    for _ in range(7):  # Generate for 7 days
         daily_chart, daily_calories, daily_protein, factor = generate_daily_chart(total_calories, calorie_distribution, veg_only)
         monthly_chart.append({
             "daily_chart": daily_chart,
@@ -108,11 +95,9 @@ def generate_monthly_chart(total_calories, calorie_distribution, veg_only):
 class HindiPDF(FPDF):
     def __init__(self):
         super().__init__()
-        font_path = Path(__file__).parent / "DejaVuSans.ttf"
-
+        font_path = Path("/Users/dr.ajayshukla/PycharmProjects/Panini_nutrition/DejaVuSans.ttf")
         if not font_path.exists():
             raise FileNotFoundError(f"{font_path} font file not found! Please add it to the project folder.")
-
         self.add_font("DejaVu", style="", fname=str(font_path), uni=True)
 
     def add_wrapped_cell(self, width, height, text, border=1, align="L", fill=False):
@@ -125,8 +110,6 @@ class HindiPDF(FPDF):
 def create_pdf(monthly_chart, file_path, total_calories, calorie_distribution, veg_only):
     pdf = HindiPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
-
-    # Add First Page: User Inputs
     pdf.add_page()
     pdf.set_font("DejaVu", size=12)
     pdf.cell(0, 10, "मासिक आहार चार्ट - उपयोगकर्ता इनपुट", ln=True, align="C")
@@ -137,7 +120,6 @@ def create_pdf(monthly_chart, file_path, total_calories, calorie_distribution, v
         pdf.cell(0, 10, f"  - {meal}: {calories} kcal", ln=True)
     pdf.cell(0, 10, f"आहार वरीयता: {'शाकाहारी' if veg_only else 'मिश्रित'}", ln=True)
 
-    # Add daily diet charts
     for day, daily_data in enumerate(monthly_chart, start=1):
         pdf.add_page()
         pdf.set_font("DejaVu", size=12)
@@ -157,7 +139,6 @@ def create_pdf(monthly_chart, file_path, total_calories, calorie_distribution, v
 # Streamlit App
 st.title("व्यक्तिगत मासिक आहार चार्ट जनरेटर")
 
-# Inputs
 total_calories = st.number_input("अपनी कुल दैनिक कैलोरी आवश्यकता दर्ज करें (kcal):", min_value=300, max_value=4000, step=50, value=2000)
 st.write("अपने भोजन के लिए कैलोरी वितरित करें:")
 calorie_distribution = {
@@ -174,7 +155,6 @@ veg_only = st.radio("क्या आप केवल शाकाहारी �
 if st.button("आहार चार्ट उत्पन्न करें"):
     monthly_chart = generate_monthly_chart(total_calories, calorie_distribution, veg_only)
 
-    # Create and download PDF
     output_pdf_path = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf").name
     create_pdf(monthly_chart, output_pdf_path, total_calories, calorie_distribution, veg_only)
 
