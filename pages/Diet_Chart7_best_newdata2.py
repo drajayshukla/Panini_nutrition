@@ -93,7 +93,7 @@ def generate_daily_chart(total_calories, calorie_distribution, veg_only):
 # Generate the monthly diet chart
 def generate_monthly_chart(total_calories, calorie_distribution, veg_only):
     monthly_chart = []
-    for _ in range(7):  # For 7 days (can be extended)
+    for _ in range(1):  # For 7 days (can be extended)
         daily_chart, daily_calories, daily_protein, factor = generate_daily_chart(total_calories, calorie_distribution, veg_only)
         monthly_chart.append({
             "daily_chart": daily_chart,
