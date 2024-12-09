@@ -5,7 +5,7 @@ import pandas as pd
 @st.cache
 def load_data():
     # Replace with the path to your CSV file
-    data = pd.read_csv("data/recipechunk_1.csv")
+    data = pd.read_csv("data/recipe.csv")
     return data
 
 # App title
