@@ -5,7 +5,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 # Function to connect to Google Sheets
 def connect_to_google_sheet(sheet_id):
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    credentials = ServiceAccountCredentials.from_json_keyfile_name("wired-rex-384216-022ef0ae8b96.json", scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_name("../storage/wired-rex-384216-022ef0ae8b96.json", scope)
     client = gspread.authorize(credentials)
     sheet = client.open_by_key(sheet_id).sheet1
     return sheet

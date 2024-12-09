@@ -16,7 +16,7 @@ def load_symptoms_data(file):
 # Authenticate and initialize Google Sheets
 def initialize_google_sheet():
     # Path to your Google Service Account credentials JSON file
-    credentials_file = "wired-rex-384216-022ef0ae8b96.json"
+    credentials_file = "../storage/wired-rex-384216-022ef0ae8b96.json"
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
     credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_file, scope)
     client = gspread.authorize(credentials)
