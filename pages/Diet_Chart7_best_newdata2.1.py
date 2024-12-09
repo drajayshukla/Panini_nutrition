@@ -115,6 +115,7 @@ def create_pdf(monthly_chart, file_path, total_calories, calorie_distribution, v
     pdf.cell(0, 10, f"कुल दैनिक कैलोरी आवश्यकता: {total_calories} kcal", ln=True, border=0)
     pdf.cell(0, 10, "कैलोरी वितरण:", ln=True, border=0)
 
+    # List the calorie distribution for each meal
     for meal, calories in calorie_distribution.items():
         pdf.cell(0, 10, f"  - {meal}: {calories} kcal", ln=True, border=0)
 
@@ -126,22 +127,37 @@ def create_pdf(monthly_chart, file_path, total_calories, calorie_distribution, v
         pdf.set_font("NotoSansDevanagari", size=12)
         pdf.cell(0, 10, f"दिन {day}: आहार चार्ट", ln=True, border=0)
 
+        # Add table headers
         pdf.set_font("NotoSansDevanagari", size=10)
-        pdf.cell(90, 10, "भोजन का नाम", border=1, align="C")
-        pdf.cell(30, 10, "मात्रा", border=1, align="C")
-        pdf.cell(30, 10, "कैलोरी (kcal)", border=1, align="C")
-        pdf.cell(30, 10, "प्रोटीन (g)", border=1, align="C")
+        pdf.set_fill_color(230, 230, 250)  # Light lavender for table headers
+        header_widths = [90, 30, 30, 30]
+        pdf.cell(header_widths[0], 10, "भोजन का नाम", border=1, fill=True, align="C")
+        pdf.cell(header_widths[1], 10, "मात्रा", border=1, fill=True, align="C")
+        pdf.cell(header_widths[2], 10, "कैलोरी (kcal)", border=1, fill=True, align="C")
+        pdf.cell(header_widths[3], 10, "प्रोटीन (g)", border=1, fill=True, align="C")
         pdf.ln()
 
+        # Loop through food items and add them
         for item in daily_data["daily_chart"]:
-            pdf.multi_cell(90, 10, item["Name"], border=1)
-            pdf.cell(30, 10, item["Quantities"], border=1, align="L")
-            pdf.cell(30, 10, f"{item['Kcal']:.2f}", border=1, align="R")
-            pdf.cell(30, 10, f"{item['Protein Content (g)']:.2f}", border=1, align="R")
-            pdf.ln()
+            # Calculate the height of the row based on the tallest cell (multi_cell)
+            name_height = pdf.get_string_width(item["Name"]) // header_widths[0] + 1
+            row_height = max(name_height * 10, 10)  # Ensure at least a minimum height
 
+            # Use multi_cell for long text in "Name"
+            pdf.multi_cell(header_widths[0], row_height, item["Name"], border=1, align="L")
+
+            # Add the rest of the cells
+            x, y = pdf.get_x(), pdf.get_y() - row_height
+            pdf.set_xy(x + header_widths[0], y)
+            pdf.cell(header_widths[1], row_height, item["Quantities"], border=1, align="L")
+            pdf.cell(header_widths[2], row_height, f"{item['Kcal']:.2f}", border=1, align="R")
+            pdf.cell(header_widths[3], row_height, f"{item['Protein Content (g)']:.2f}", border=1, align="R")
+            pdf.ln(row_height)
+
+    # Output the PDF to the specified file path
     pdf.output(file_path)
     return file_path
+
 
 # Streamlit App
 st.title("व्यक्तिगत मासिक आहार चार्ट जनरेटर")
