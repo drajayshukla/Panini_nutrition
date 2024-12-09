@@ -95,48 +95,75 @@ def generate_monthly_chart(total_calories, calorie_distribution, veg_only):
 class HindiPDF(FPDF):
     def __init__(self):
         super().__init__()
-        from pathlib import Path
-
+        # Resolve the font path dynamically
         font_path = Path(__file__).resolve().parent.parent / "DejaVuSans.ttf"
         print(f"Resolved font path: {font_path}")
 
+        # Check if the font file exists
         if not font_path.exists():
             raise FileNotFoundError(f"{font_path} font file not found! Please ensure it is in the correct folder.")
 
+        # Add the DejaVu font for use in PDF
+        self.add_font("DejaVu", style="", fname=str(font_path), uni=True)
+
     def add_wrapped_cell(self, width, height, text, border=1, align="L", fill=False):
+        """
+        Adds a wrapped cell using MultiCell if the text is too long.
+        """
         x, y = self.get_x(), self.get_y()
         self.multi_cell(width, height, text, border=border, align=align, fill=fill)
         self.set_xy(x + width, y)
 
-
 # Create PDF with Hindi Support
 def create_pdf(monthly_chart, file_path, total_calories, calorie_distribution, veg_only):
+    # Initialize HindiPDF class
     pdf = HindiPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
+
+    # First Page: User Inputs Summary
     pdf.add_page()
     pdf.set_font("DejaVu", size=12)
-    pdf.cell(0, 10, "मासिक आहार चार्ट - उपयोगकर्ता इनपुट", ln=True, align="C")
-    pdf.set_font("DejaVu", size=10)
-    pdf.cell(0, 10, f"कुल दैनिक कैलोरी आवश्यकता: {total_calories} kcal", ln=True)
-    pdf.cell(0, 10, "कैलोरी वितरण:", ln=True)
-    for meal, calories in calorie_distribution.items():
-        pdf.cell(0, 10, f"  - {meal}: {calories} kcal", ln=True)
-    pdf.cell(0, 10, f"आहार वरीयता: {'शाकाहारी' if veg_only else 'मिश्रित'}", ln=True)
+    pdf.cell(0, 10, "मासिक आहार चार्ट - उपयोगकर्ता इनपुट", ln=True, align="C", border=0)
 
+    pdf.set_font("DejaVu", size=10)
+    pdf.ln(5)  # Add a blank line
+    pdf.cell(0, 10, f"कुल दैनिक कैलोरी आवश्यकता: {total_calories} kcal", ln=True, border=0)
+    pdf.cell(0, 10, "कैलोरी वितरण:", ln=True, border=0)
+
+    # List the calorie distribution for each meal
+    for meal, calories in calorie_distribution.items():
+        pdf.cell(0, 10, f"  - {meal}: {calories} kcal", ln=True, border=0)
+
+    pdf.cell(0, 10, f"आहार वरीयता: {'शाकाहारी' if veg_only else 'मिश्रित'}", ln=True, border=0)
+
+    # Daily Diet Charts
     for day, daily_data in enumerate(monthly_chart, start=1):
         pdf.add_page()
         pdf.set_font("DejaVu", size=12)
-        pdf.cell(0, 10, f"दिन {day}: आहार चार्ट", ln=True)
+        pdf.cell(0, 10, f"दिन {day}: आहार चार्ट", ln=True, border=0)
+
+        # Add details for each meal
         pdf.set_font("DejaVu", size=10)
+        pdf.ln(5)  # Add some spacing
+        pdf.set_fill_color(230, 230, 250)  # Light lavender for table headers
+        pdf.cell(70, 10, "भोजन का नाम", border=1, fill=True, align="C")
+        pdf.cell(40, 10, "मात्रा", border=1, fill=True, align="C")
+        pdf.cell(40, 10, "कैलोरी (kcal)", border=1, fill=True, align="C")
+        pdf.cell(40, 10, "प्रोटीन (g)", border=1, fill=True, align="C")
+        pdf.ln()
+
+        # Loop through food items and add them
         for item in daily_data["daily_chart"]:
-            pdf.add_wrapped_cell(70, 8, item["Name"], border=1)
-            pdf.cell(40, 8, item["Quantities"], border=1, align="L")
-            pdf.cell(40, 8, f"{item['Kcal']:.2f}", border=1, align="R")
-            pdf.cell(40, 8, f"{item['Protein Content (g)']:.2f}", border=1, align="R")
+            pdf.cell(70, 10, item["Name"], border=1, align="L")
+            pdf.cell(40, 10, item["Quantities"], border=1, align="L")
+            pdf.cell(40, 10, f"{item['Kcal']:.2f}", border=1, align="R")
+            pdf.cell(40, 10, f"{item['Protein Content (g)']:.2f}", border=1, align="R")
             pdf.ln()
 
+    # Output the PDF to the specified file path
     pdf.output(file_path)
     return file_path
+
 
 
 # Streamlit App
