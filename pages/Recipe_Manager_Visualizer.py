@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import os
 
-# Load data
+# Load data function
 @st.cache_data
 def load_data(file_path):
     return pd.read_csv(file_path)
@@ -10,11 +11,24 @@ def load_data(file_path):
 # App title
 st.title("Recipe Manager and Visualizer")
 
-# Upload file
+# Check if a default file exists in the /data folder
+default_file_path = "data/recipes.csv"  # Adjust this path as necessary
+default_file_exists = os.path.exists(default_file_path)
+
+# Show a message if a default file is loaded
+if default_file_exists:
+    st.info(f"Default file loaded from {default_file_path}")
+    data = load_data(default_file_path)
+else:
+    st.info("No default file found. Please upload a CSV file.")
+
+# File uploader
 uploaded_file = st.file_uploader("Upload your recipe CSV file", type=["csv"])
 if uploaded_file:
     data = load_data(uploaded_file)
 
+# Continue if data is available
+if 'data' in locals():
     # Show the dataset
     st.header("Dataset Preview")
     st.dataframe(data)
