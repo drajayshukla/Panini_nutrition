@@ -102,6 +102,7 @@ class HindiPDF(FPDF):
 
 # Create PDF with Hindi Support
 def create_pdf(monthly_chart, file_path, total_calories, calorie_distribution, veg_only):
+    # Initialize HindiPDF class
     pdf = HindiPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
 
@@ -130,33 +131,32 @@ def create_pdf(monthly_chart, file_path, total_calories, calorie_distribution, v
         # Add table headers
         pdf.set_font("NotoSansDevanagari", size=10)
         pdf.set_fill_color(230, 230, 250)  # Light lavender for table headers
-        header_widths = [90, 30, 30, 30]
-        pdf.cell(header_widths[0], 10, "भोजन का नाम", border=1, fill=True, align="C")
-        pdf.cell(header_widths[1], 10, "मात्रा", border=1, fill=True, align="C")
-        pdf.cell(header_widths[2], 10, "कैलोरी (kcal)", border=1, fill=True, align="C")
-        pdf.cell(header_widths[3], 10, "प्रोटीन (g)", border=1, fill=True, align="C")
+        pdf.cell(70, 10, "भोजन का नाम", border=1, fill=True, align="C")
+        pdf.cell(40, 10, "मात्रा", border=1, fill=True, align="C")
+        pdf.cell(40, 10, "कैलोरी (kcal)", border=1, fill=True, align="C")
+        pdf.cell(40, 10, "प्रोटीन (g)", border=1, fill=True, align="C")
         pdf.ln()
 
         # Loop through food items and add them
         for item in daily_data["daily_chart"]:
-            # Calculate the height of the row based on the tallest cell (multi_cell)
-            name_height = pdf.get_string_width(item["Name"]) // header_widths[0] + 1
-            row_height = max(name_height * 10, 10)  # Ensure at least a minimum height
+            # Wrap text in the first column using multi_cell
+            y_before = pdf.get_y()  # Save the current y position
+            pdf.multi_cell(70, 10, item["Name"], border=1, align="L")  # Wrap text for the "Name" column
+            y_after = pdf.get_y()  # Get the new y position after wrapping
 
-            # Use multi_cell for long text in "Name"
-            pdf.multi_cell(header_widths[0], row_height, item["Name"], border=1, align="L")
-
-            # Add the rest of the cells
-            x, y = pdf.get_x(), pdf.get_y() - row_height
-            pdf.set_xy(x + header_widths[0], y)
-            pdf.cell(header_widths[1], row_height, item["Quantities"], border=1, align="L")
-            pdf.cell(header_widths[2], row_height, f"{item['Kcal']:.2f}", border=1, align="R")
-            pdf.cell(header_widths[3], row_height, f"{item['Protein Content (g)']:.2f}", border=1, align="R")
-            pdf.ln(row_height)
+            # Align other cells with the height of the wrapped text
+            row_height = y_after - y_before
+            x, y = pdf.get_x() + 70, y_before  # Move x to the start of the next cell, keep y consistent
+            pdf.set_xy(x, y)
+            pdf.cell(40, row_height, item["Quantities"], border=1, align="L")
+            pdf.cell(40, row_height, f"{item['Kcal']:.2f}", border=1, align="R")
+            pdf.cell(40, row_height, f"{item['Protein Content (g)']:.2f}", border=1, align="R")
+            pdf.ln(row_height)  # Move to the next line
 
     # Output the PDF to the specified file path
     pdf.output(file_path)
     return file_path
+
 
 
 # Streamlit App
