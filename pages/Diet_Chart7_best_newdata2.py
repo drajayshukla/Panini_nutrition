@@ -6,7 +6,7 @@ import tempfile
 
 
 # Load the diet data
-diet_data = pd.read_csv('data/our_diet.csv')
+diet_data = pd.read_csv('data/our_diet11.csv')
 
 # Ensure numeric columns
 diet_data["Kcal"] = pd.to_numeric(diet_data["Kcal"], errors="coerce")
