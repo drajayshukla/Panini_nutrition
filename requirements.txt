@@ -8,6 +8,7 @@ numpy
 seaborn
 gspread
 oauth2client
-pandas
 PyYAML
+wordcloud
+
 
