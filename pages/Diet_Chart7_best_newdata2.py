@@ -96,7 +96,7 @@ class HindiPDF(FPDF):
     def __init__(self):
         super().__init__()
         # Resolve the font path dynamically
-        font_path = Path(__file__).resolve().parent.parent / "DejaVuSans.ttf"
+        font_path = Path(__file__).resolve().parent.parent / "NotoSansDevanagari-Regular.ttf"
         print(f"Resolved font path: {font_path}")
 
         # Check if the font file exists
