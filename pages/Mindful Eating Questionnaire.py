@@ -1,9 +1,8 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.patches import Polygon
-from math import pi
 from docx import Document
+from docx.shared import Inches
 import tempfile
 
 # Define questionnaire sections and questions
@@ -66,45 +65,12 @@ def calculate_scores(responses):
                 scores["Low Mindful Eating"] += 1
     return scores
 
-def visualize_bar_chart(scores):
-    categories = list(scores.keys())
-    values = list(scores.values())
+def save_plot_as_image(fig, filename):
+    temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".png")
+    fig.savefig(temp_file.name, bbox_inches="tight")
+    return temp_file.name
 
-    fig, ax = plt.subplots()
-    ax.bar(categories, values, color=["green", "orange", "red"])
-    ax.set_title("Mindful Eating Scores")
-    ax.set_ylabel("Number of Responses")
-    st.pyplot(fig)
-
-def visualize_pie_chart(scores):
-    labels = scores.keys()
-    values = scores.values()
-
-    fig, ax = plt.subplots()
-    ax.pie(values, labels=labels, autopct='%1.1f%%', startangle=140, colors=["green", "orange", "red"])
-    ax.set_title("Mindful Eating Response Distribution")
-    st.pyplot(fig)
-
-def visualize_radar_chart(responses):
-    section_scores = {section: sum(1 for answer in answers if answer in ["Always", "Often"]) for section, answers in responses.items()}
-    categories = list(section_scores.keys())
-    values = list(section_scores.values())
-    values += values[:1]  # Repeat the first value to close the circle
-
-    num_vars = len(categories)
-    angles = [n / float(num_vars) * 2 * pi for n in range(num_vars)]
-    angles += angles[:1]
-
-    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
-    ax.set_theta_offset(pi / 2)
-    ax.set_theta_direction(-1)
-
-    plt.xticks(angles[:-1], categories, color='grey', size=10)
-    ax.plot(angles, values, linewidth=2, linestyle='solid', color='blue')
-    ax.fill(angles, values, color='blue', alpha=0.25)
-    st.pyplot(fig)
-
-def save_to_word(responses, scores, recommendations):
+def save_to_word(responses, scores, recommendations, images):
     doc = Document()
     doc.add_heading("Mindful Eating Questionnaire (MEQ) Results", level=1)
     doc.add_paragraph("Below are your responses, scores, and recommendations based on the MEQ.")
@@ -120,6 +86,12 @@ def save_to_word(responses, scores, recommendations):
     doc.add_heading("Your Scores", level=2)
     for category, score in scores.items():
         doc.add_paragraph(f"{category}: {score}")
+
+    # Add visualizations
+    doc.add_heading("Visualizations", level=2)
+    for title, image_path in images.items():
+        doc.add_paragraph(title)
+        doc.add_picture(image_path, width=Inches(4.0))
 
     # Add recommendations
     doc.add_heading("Recommendations", level=2)
@@ -160,12 +132,29 @@ def main():
 
         # Visualizations
         st.subheader("Visualizations")
-        st.write("### Bar Chart")
-        visualize_bar_chart(scores)
-        st.write("### Pie Chart")
-        visualize_pie_chart(scores)
-        st.write("### Radar Chart")
-        visualize_radar_chart(responses)
+
+        # Bar Chart
+        categories = list(scores.keys())
+        values = list(scores.values())
+        fig, ax = plt.subplots()
+        ax.bar(categories, values, color=["green", "orange", "red"])
+        ax.set_title("Mindful Eating Scores")
+        ax.set_ylabel("Number of Responses")
+        st.pyplot(fig)
+        bar_chart_path = save_plot_as_image(fig, "bar_chart.png")
+
+        # Pie Chart
+        fig, ax = plt.subplots()
+        ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=140, colors=["green", "orange", "red"])
+        ax.set_title("Mindful Eating Response Distribution")
+        st.pyplot(fig)
+        pie_chart_path = save_plot_as_image(fig, "pie_chart.png")
+
+        # Save images for Word document
+        images = {
+            "Bar Chart": bar_chart_path,
+            "Pie Chart": pie_chart_path,
+        }
 
         # Provide recommendations
         recommendations = []
@@ -186,8 +175,8 @@ def main():
                 st.write(f"- {rec}")
 
         # Save to Word Document
-        word_file = save_to_word(responses, scores, recommendations)
-        st.success("Word document generated successfully!")
+        word_file = save_to_word(responses, scores, recommendations, images)
+        st.success("Word document with graphs generated successfully!")
         with open(word_file, "rb") as file:
             st.download_button("Download Results as Word Document", file, file_name="Mindful_Eating_Results.docx")
 
