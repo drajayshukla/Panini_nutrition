@@ -10,5 +10,9 @@ gspread
 oauth2client
 PyYAML
 wordcloud
+torch
+torchvision
+opencv-python
+pillow
 
 
