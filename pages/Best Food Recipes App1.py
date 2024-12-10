@@ -1,50 +1,66 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-from wordcloud import WordCloud
 
-# App title
-st.title("Best Food App")
-#st.write("Upload your CSV file to explore delicious food recipes and details!")
-file_path = 'data/recipe_links.csv'
-# Upload file
-uploaded_file = file_path
-# File uploader
-#uploaded_file = st.file_uploader("Upload a CSV file", type="csv")
+# File Upload
+st.title("Recipe Diet Analysis and Visualization")
+uploaded_file = st.file_uploader("Upload a CSV file", type="csv")
 
 if uploaded_file:
-    # Load the uploaded CSV into a DataFrame
-    df = pd.read_csv(uploaded_file)
+    # Read CSV file
+    data = pd.read_csv(uploaded_file)
+    st.dataframe(data.head())
 
-    # Display table
-    st.write("### Food Details")
-    st.dataframe(df, use_container_width=True)
+    # 5 Best Diet Features
+    st.header("Dietary Features")
+    # Feature 1: Sugar content per recipe
+    sugar_data = data[data["ingredient_name_org"].str.contains("Sugar", na=False)]
+    sugar_per_recipe = sugar_data.groupby("recipe_name")["amount"].sum().reset_index()
+    st.subheader("Sugar Content Per Recipe")
+    st.bar_chart(sugar_per_recipe.set_index("recipe_name"))
 
-    # Search functionality
-    st.write("### Search Food")
-    search_query = st.text_input("Search by food name or code (e.g., 'Sattu' or 'OSR002')")
+    # Feature 2: Water usage per recipe
+    water_data = data[data["ingredient_name_org"].str.contains("Water", na=False)]
+    water_per_recipe = water_data.groupby("recipe_name")["amount"].sum().reset_index()
+    st.subheader("Water Usage Per Recipe")
+    st.bar_chart(water_per_recipe.set_index("recipe_name"))
 
-    if search_query:
-        filtered_df = df[df["Food Names"].str.contains(search_query, case=False, na=False) |
-                         df["Food Code"].str.contains(search_query, case=False, na=False)]
-        if not filtered_df.empty:
-            st.write("#### Search Results")
-            st.dataframe(filtered_df, use_container_width=True)
-        else:
-            st.write("No results found.")
+    # Feature 3: Lemon usage
+    lemon_data = data[data["ingredient_name_org"].str.contains("Lemon", na=False)]
+    st.subheader("Recipes Using Lemon")
+    st.dataframe(lemon_data[["recipe_name", "ingredient_name_org", "amount"]])
 
-    # Generate Word Cloud of food names
-    st.write("### Food Name Word Cloud")
-    wordcloud = WordCloud(width=800, height=400, background_color="white").generate(" ".join(df["Food Names"].dropna()))
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.imshow(wordcloud, interpolation="bilinear")
-    ax.axis("off")
+    # Feature 4: Ingredient counts
+    ingredient_counts = data.groupby("recipe_name")["ingredient_name_org"].count().reset_index()
+    st.subheader("Number of Ingredients Per Recipe")
+    st.bar_chart(ingredient_counts.set_index("recipe_name"))
+
+    # Feature 5: Recipes with highest caloric ingredients (assumed calorie data)
+    # Simplified analysis based on sugar content for demonstration
+    caloric_recipes = sugar_data.groupby("recipe_name")["amount"].sum().sort_values(ascending=False)
+    st.subheader("Recipes With High Caloric Ingredients")
+    st.bar_chart(caloric_recipes)
+
+    # Visualizations
+    st.header("Visualizations")
+    fig, ax = plt.subplots()
+    ax.pie(
+        ingredient_counts["ingredient_name_org"],
+        labels=ingredient_counts["recipe_name"],
+        autopct='%1.1f%%',
+        startangle=90
+    )
+    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     st.pyplot(fig)
 
-    # Link to recipes
-    st.write("### View Recipe")
-    selected_food = st.selectbox("Select a food to view its recipe", df["Food Names"])
+    # Custom Search
+    st.header("Custom Recipe Search")
+    search_term = st.text_input("Search for a recipe or ingredient")
+    if search_term:
+        search_results = data[
+            data["recipe_name"].str.contains(search_term, case=False, na=False) |
+            data["ingredient_name_org"].str.contains(search_term, case=False, na=False)
+        ]
+        st.dataframe(search_results)
 
-    if selected_food:
-        food_link = df[df["Food Names"] == selected_food]["Link"].values[0]
-        st.write(f"Click [here]({food_link}) to view the recipe for **{selected_food}**.")
+st.info("Upload a CSV file to get started!")
