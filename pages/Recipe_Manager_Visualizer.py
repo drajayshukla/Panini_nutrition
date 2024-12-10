@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Load the dataset
-@st.cache
+@st.cache_data
 def load_data():
     # Replace with the path to your CSV file
     data = pd.read_csv("data/recipechunk_1.csv")

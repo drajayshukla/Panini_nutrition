@@ -7,7 +7,7 @@ from wordcloud import WordCloud
 import plotly.express as px
 
 # Load dataset
-@st.cache
+@st.cache_data
 def load_data(file_path):
     return pd.read_csv(file_path)
 
