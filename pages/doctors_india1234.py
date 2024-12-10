@@ -68,7 +68,7 @@ df = pd.DataFrame(data)
 
 # Display all data
 st.write("### Full Dataset Overview")
-st.dataframe(df)
+st.dataframe(df, use_container_width=True, height=600)
 
 # Separate per-year data and textual insights
 df_numeric = df[df["Seats"].apply(lambda x: str(x).replace(",", "").isdigit())].copy()
