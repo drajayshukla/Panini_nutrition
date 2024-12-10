@@ -2,35 +2,11 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-
+file_path = 'data/recipe_links.csv'
+# Upload file
+PRELOADED_DATA = file_path
 # Preloaded data in CSV structure
-PRELOADED_DATA = {
-    "Food Names": [
-        "Woodapple juice (Bel ka sharbat)",
-        "Sattu drink",
-        "Apple and honey sorbet (Seb aur shehad ka sharbat)",
-        "Thandai",
-        "Cucumber sharbat (Kheere ka sharbat)",
-        "Apple oats chia seed smoothie",
-        "Nannari sharbat",
-        "Semolina milk drink (Thari kanji)",
-        "Saffron milk (Kesariya doodh)"
-    ],
-    "Food Code": [
-        "OSR001", "OSR002", "OSR004", "OSR005", "OSR006", "OSR007", "OSR008", "OSR009", "OSR010"
-    ],
-    "Link": [
-        "https://www.betterbutter.in/recipe/32734/wood-apple-bael-juice/",
-        "https://www.vegrecipesofindia.com/sattu-drink-recipe-sattu-sharbat/",
-        "https://www.allrecipes.com/recipe/76202/apple-and-honey-sorbet/",
-        "https://www.indianhealthyrecipes.com/thandai/",
-        "https://www.recipemasters.in/recipe/cucumber-sharbat/",
-        "https://food.ndtv.com/recipe-apple-oats-chia-seeds-smoothie-958104",
-        "https://www.sharmispassions.com/nannari-sarbath-recipe-homemade-nannari-syrup/",
-        "https://mildlyindian.com/malabar-cuisine-thari-kanji-iftar-semolina-pudding/",
-        "https://food.ndtv.com/recipe-kesaria-doodh-219040"
-    ]
-}
+
 
 # Load preloaded data into a DataFrame
 df = pd.DataFrame(PRELOADED_DATA)
