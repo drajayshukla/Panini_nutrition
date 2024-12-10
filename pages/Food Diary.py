@@ -8,7 +8,7 @@ def save_to_pdf(data):
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
-    pdf.cell(200, 10, txt="One-Day Food Diary", ln=True, align="C")
+    pdf.cell(200, 10, txt="Food Diary Summary", ln=True, align="C")
     pdf.ln(10)
 
     for day, entries in data.items():
@@ -29,21 +29,22 @@ def save_to_pdf(data):
 
 
 def main():
-    st.title("One-Day Food Diary")
+    st.title("Food Diary Questionnaire")
 
     st.markdown("""
     **Purpose:**
-    This tool is designed to record and evaluate dietary intake over three consecutive days, including one weekend day. It provides a detailed snapshot of eating habits, portion sizes, and timing.
+    This tool is designed to record and evaluate dietary intake for up to three days, including one weekend day. It captures eating habits, portion sizes, and timing.
 
     **Instructions:**
-    1. Record everything you eat and drink for three days, including meals, snacks, and beverages.
-    2. Note the time of each intake.
-    3. Specify portion sizes and preparation methods (e.g., boiled, fried, baked).
-    4. Mention the location where you ate (e.g., home, office, restaurant).
-    5. Include brand names if packaged foods are consumed.
+    1. Select the number of days you want to log (1 to 3).
+    2. For each day, record everything you eat and drink, including meals, snacks, and beverages.
+    3. Note the time, portion sizes, preparation methods, and location for each intake.
+    4. Include brand names if packaged foods are consumed.
     """)
 
-    days = ["Day 1", "Day 2", "Day 3"]
+    # Select number of days
+    num_days = st.selectbox("Select the number of days for your food diary:", [1, 2, 3])
+    days = [f"Day {i}" for i in range(1, num_days + 1)]
     diary_data = {day: [] for day in days}
 
     for day in days:
@@ -78,7 +79,7 @@ def main():
         pdf_file = save_to_pdf(diary_data)
         st.success("PDF generated successfully!")
         with open(pdf_file, "rb") as file:
-            st.download_button("Download PDF", file, file_name="One_Day_Food_Diary.pdf")
+            st.download_button("Download PDF", file, file_name="Food_Diary.pdf")
 
 
 if __name__ == "__main__":
