@@ -74,12 +74,18 @@ def main():
                 if articles:
                     st.success(f"Fetched {len(articles)} articles!")
                     df = pd.DataFrame(articles)
-                    st.dataframe(df)
 
-                    # Download CSV option
-                    csv_data = df.to_csv(index=False).encode("utf-8")
+                    # Make links clickable in the Streamlit DataFrame
+                    df['Link'] = df['Link'].apply(
+                        lambda x: f'<a href="{x}" target="_blank">PubMed Link</a>'
+                    )
+                    st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
+
+                    # Prepare a downloadable CSV with links
+                    csv_data = pd.DataFrame(articles)  # Original DataFrame for CSV
+                    csv_data = csv_data.to_csv(index=False).encode("utf-8")
                     st.download_button(
-                        label="Download CSV",
+                        label="Download CSV with Links",
                         data=csv_data,
                         file_name="nejm_articles.csv",
                         mime="text/csv",
