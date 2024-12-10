@@ -7,7 +7,7 @@ import seaborn as sns
 @st.cache_data
 def load_data():
     # Replace with your CSV file path
-    data = pd.read_csv("nutrition_data.csv")
+    data = pd.read_csv("data/newdatadiet.csv")
     return data
 
 # App title
