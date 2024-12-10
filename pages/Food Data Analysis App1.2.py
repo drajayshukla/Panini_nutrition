@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load dataset from the specified path
-file_path = '/data/INDB_my.csv'
+file_path = 'data/INDB_my.csv'
 
 st.title("Food Data Analysis App")
 st.write("Analyzing food nutritional data from the preloaded dataset.")
