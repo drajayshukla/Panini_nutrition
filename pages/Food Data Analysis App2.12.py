@@ -7,9 +7,10 @@ from wordcloud import WordCloud
 # App title
 st.title("Food Data Analysis App")
 st.write("Upload a CSV file to analyze and visualize food data.")
-
+file_path = 'data/INDB_my.csv'
 # Upload file
-uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+uploaded_file = file_path
+    #st.file_uploader("Choose a CSV file", type="csv")
 
 if uploaded_file:
     # Load the data
