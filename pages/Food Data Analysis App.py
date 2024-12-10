@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
+from wordcloud import WordCloud
 
 # App title
 st.title("Food Data Analysis App")
@@ -22,48 +23,58 @@ if uploaded_file:
     st.write(df.describe())
 
     # Column selection for analysis
-    st.write("### Choose Columns for Analysis")
+    st.write("### Choose Column for Analysis")
     numeric_columns = df.select_dtypes(include=["float64", "int64"]).columns.tolist()
-    selected_column = st.selectbox("Select a column to visualize", numeric_columns)
+    selected_column = st.selectbox("Select a column to analyze", numeric_columns)
 
-    # Plot options
-    st.write("### Visualization Options")
-    plot_type = st.selectbox(
-        "Select plot type", ["Bar Plot", "Scatter Plot", "Box Plot", "Word Cloud"]
-    )
+    # Top 20 and Bottom 20 analysis
+    st.write("### Top 20 and Bottom 20 Analysis")
+    if selected_column:
+        top_20 = df.nlargest(20, selected_column)
+        bottom_20 = df.nsmallest(20, selected_column)
 
-    if plot_type == "Bar Plot":
-        st.write(f"### Bar Plot of {selected_column}")
-        fig, ax = plt.subplots()
-        df[selected_column].value_counts().plot(kind="bar", ax=ax)
-        st.pyplot(fig)
+        st.write("#### Top 20")
+        st.dataframe(top_20[["food_name", selected_column]])
 
-    elif plot_type == "Scatter Plot":
-        x_col = st.selectbox("Select X-axis", numeric_columns)
-        y_col = st.selectbox("Select Y-axis", numeric_columns)
-        st.write(f"### Scatter Plot of {x_col} vs {y_col}")
-        fig = px.scatter(df, x=x_col, y=y_col, title=f"{x_col} vs {y_col}")
+        st.write("#### Bottom 20")
+        st.dataframe(bottom_20[["food_name", selected_column]])
+
+        # Visualization for Top 20
+        st.write(f"### Bar Plot: Top 20 by {selected_column}")
+        fig = px.bar(
+            top_20,
+            x="food_name",
+            y=selected_column,
+            labels={"food_name": "Food Name", selected_column: f"{selected_column}"},
+            title=f"Top 20 Foods by {selected_column}",
+        )
         st.plotly_chart(fig)
 
-    elif plot_type == "Box Plot":
-        st.write(f"### Box Plot of {selected_column}")
-        fig = px.box(df, y=selected_column, title=f"Box Plot of {selected_column}")
+        # Visualization for Bottom 20
+        st.write(f"### Bar Plot: Bottom 20 by {selected_column}")
+        fig = px.bar(
+            bottom_20,
+            x="food_name",
+            y=selected_column,
+            labels={"food_name": "Food Name", selected_column: f"{selected_column}"},
+            title=f"Bottom 20 Foods by {selected_column}",
+        )
         st.plotly_chart(fig)
-
-    elif plot_type == "Word Cloud":
-        st.write("### Word Cloud of Food Names")
-        wordcloud = WordCloud(
-            width=800, height=400, background_color="white"
-        ).generate(" ".join(df["food_name"]))
-        fig, ax = plt.subplots(figsize=(10, 5))
-        ax.imshow(wordcloud, interpolation="bilinear")
-        ax.axis("off")
-        st.pyplot(fig)
 
     # Correlation Heatmap
     st.write("### Correlation Heatmap")
     fig, ax = plt.subplots(figsize=(10, 8))
     sns.heatmap(df[numeric_columns].corr(), annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
+    st.pyplot(fig)
+
+    # Word Cloud for Food Names
+    st.write("### Word Cloud of Food Names")
+    wordcloud = WordCloud(
+        width=800, height=400, background_color="white"
+    ).generate(" ".join(df["food_name"]))
+    fig, ax = plt.subplots(figsize=(10, 5))
+    ax.imshow(wordcloud, interpolation="bilinear")
+    ax.axis("off")
     st.pyplot(fig)
 
     # Custom Analysis
