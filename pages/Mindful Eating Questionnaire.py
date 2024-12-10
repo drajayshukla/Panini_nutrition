@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
+from math import pi
+from docx import Document
+import tempfile
 
 # Define questionnaire sections and questions
 questionnaire = {
@@ -62,7 +66,7 @@ def calculate_scores(responses):
                 scores["Low Mindful Eating"] += 1
     return scores
 
-def visualize_scores(scores):
+def visualize_bar_chart(scores):
     categories = list(scores.keys())
     values = list(scores.values())
 
@@ -71,6 +75,61 @@ def visualize_scores(scores):
     ax.set_title("Mindful Eating Scores")
     ax.set_ylabel("Number of Responses")
     st.pyplot(fig)
+
+def visualize_pie_chart(scores):
+    labels = scores.keys()
+    values = scores.values()
+
+    fig, ax = plt.subplots()
+    ax.pie(values, labels=labels, autopct='%1.1f%%', startangle=140, colors=["green", "orange", "red"])
+    ax.set_title("Mindful Eating Response Distribution")
+    st.pyplot(fig)
+
+def visualize_radar_chart(responses):
+    section_scores = {section: sum(1 for answer in answers if answer in ["Always", "Often"]) for section, answers in responses.items()}
+    categories = list(section_scores.keys())
+    values = list(section_scores.values())
+    values += values[:1]  # Repeat the first value to close the circle
+
+    num_vars = len(categories)
+    angles = [n / float(num_vars) * 2 * pi for n in range(num_vars)]
+    angles += angles[:1]
+
+    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
+    ax.set_theta_offset(pi / 2)
+    ax.set_theta_direction(-1)
+
+    plt.xticks(angles[:-1], categories, color='grey', size=10)
+    ax.plot(angles, values, linewidth=2, linestyle='solid', color='blue')
+    ax.fill(angles, values, color='blue', alpha=0.25)
+    st.pyplot(fig)
+
+def save_to_word(responses, scores, recommendations):
+    doc = Document()
+    doc.add_heading("Mindful Eating Questionnaire (MEQ) Results", level=1)
+    doc.add_paragraph("Below are your responses, scores, and recommendations based on the MEQ.")
+
+    # Add responses
+    doc.add_heading("Your Responses", level=2)
+    for section, answers in responses.items():
+        doc.add_heading(section, level=3)
+        for question, answer in zip(questionnaire[section], answers):
+            doc.add_paragraph(f"{question}: {answer}")
+
+    # Add scores
+    doc.add_heading("Your Scores", level=2)
+    for category, score in scores.items():
+        doc.add_paragraph(f"{category}: {score}")
+
+    # Add recommendations
+    doc.add_heading("Recommendations", level=2)
+    for rec in recommendations:
+        doc.add_paragraph(rec)
+
+    # Save document to a temporary file
+    temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".docx")
+    doc.save(temp_file.name)
+    return temp_file.name
 
 def main():
     st.title("Mindful Eating Questionnaire (MEQ)")
@@ -99,37 +158,38 @@ def main():
         st.subheader("Your Scores")
         st.write(scores)
 
-        # Visualize scores
-        visualize_scores(scores)
+        # Visualizations
+        st.subheader("Visualizations")
+        st.write("### Bar Chart")
+        visualize_bar_chart(scores)
+        st.write("### Pie Chart")
+        visualize_pie_chart(scores)
+        st.write("### Radar Chart")
+        visualize_radar_chart(responses)
 
         # Provide recommendations
-        st.subheader("Recommendations")
+        recommendations = []
         if scores["High Mindful Eating"] >= scores["Moderate Mindful Eating"] and scores["High Mindful Eating"] >= scores["Low Mindful Eating"]:
             st.success("Great job! You have a high level of mindful eating.")
+            recommendations.append("You are doing great with mindful eating. Keep it up!")
         elif scores["Moderate Mindful Eating"] > scores["High Mindful Eating"]:
             st.warning("You have a moderate level of mindful eating. Consider practicing mindful eating techniques.")
+            recommendations.append("Consider mindful eating exercises, like eating without distractions or focusing on flavors.")
         else:
             st.error("Your mindful eating level is low. Here are some tips to improve:")
-            st.write("""
-            - Practice eating without distractions like TV or phones.
-            - Pay attention to your hunger and satiety signals.
-            - Avoid emotional eating triggers by managing stress effectively.
-            """)
+            recommendations.extend([
+                "Practice eating without distractions like TV or phones.",
+                "Pay attention to your hunger and satiety signals.",
+                "Avoid emotional eating triggers by managing stress effectively."
+            ])
+            for rec in recommendations:
+                st.write(f"- {rec}")
 
-        # Save responses and scores as a DataFrame
-        data = []
-        for section, answers in responses.items():
-            for question, answer in zip(questionnaire[section], answers):
-                data.append({"Section": section, "Question": question, "Response": answer})
-        df = pd.DataFrame(data)
-
-        # Display the DataFrame
-        st.subheader("Your Responses")
-        st.dataframe(df)
-
-        # Option to download data
-        csv = df.to_csv(index=False)
-        st.download_button("Download Your Responses (CSV)", csv, "responses.csv", "text/csv")
+        # Save to Word Document
+        word_file = save_to_word(responses, scores, recommendations)
+        st.success("Word document generated successfully!")
+        with open(word_file, "rb") as file:
+            st.download_button("Download Results as Word Document", file, file_name="Mindful_Eating_Results.docx")
 
 if __name__ == "__main__":
     main()
