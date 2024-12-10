@@ -49,12 +49,12 @@ def main():
             st.warning("Please enter a valid barcode.")
 
     # Upload barcode image (Future Enhancement)
-    st.markdown("### Barcode Image (Optional)")
-    st.markdown("*This feature requires a barcode recognition API or library.*")
+    #st.markdown("### Barcode Image (Optional)")
+    #st.markdown("*This feature requires a barcode recognition API or library.*")
 
-    uploaded_file = st.file_uploader("Upload a Barcode Image (Optional)", type=["jpg", "jpeg", "png"])
-    if uploaded_file:
-        st.error("Barcode image scanning is currently unavailable. Please enter the barcode manually.")
+    #uploaded_file = st.file_uploader("Upload a Barcode Image (Optional)", type=["jpg", "jpeg", "png"])
+   # if uploaded_file:
+        #st.error("Barcode image scanning is currently unavailable. Please enter the barcode manually.")
 
 if __name__ == "__main__":
     main()
