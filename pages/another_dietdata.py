@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # Load the CSV data
 @st.cache_data
 def load_data():
-    data = pd.read_csv("nutrition_data.csv")  # Replace with your CSV file
+    data = pd.read_csv("/Users/dr.ajayshukla/Downloads/newdatadiet.csv")  # Replace with your CSV file
     return data
 
 
