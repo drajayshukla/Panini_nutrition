@@ -16,17 +16,19 @@ activity_levels = {
 }
 
 icmr_rda = {
-    "Male": {"Energy": 2425, "Protein": 60, "Fat": 25},
-    "Female": {"Energy": 1875, "Protein": 50, "Fat": 20},
-    "Pregnant": {"Energy": 350 + 1875, "Protein": 15 + 50, "Fat": 5 + 20},
-    "Lactating": {"Energy": 600 + 1875, "Protein": 25 + 50, "Fat": 10 + 20}
+    "Male": {"Energy": 2425, "Protein": 60, "Iron": 17, "Calcium": 600, "Sodium": 2000, "Potassium": 3500},
+    "Female": {"Energy": 1875, "Protein": 50, "Iron": 21, "Calcium": 600, "Sodium": 2000, "Potassium": 3500},
+    "Pregnant": {"Energy": 350 + 1875, "Protein": 15 + 50, "Iron": 35, "Calcium": 1200, "Sodium": 2000,
+                 "Potassium": 3500},
+    "Lactating": {"Energy": 600 + 1875, "Protein": 25 + 50, "Iron": 21, "Calcium": 1200, "Sodium": 2000,
+                  "Potassium": 3500}
 }
 
 us_rda = {
-    "Male": {"Energy": 2500, "Protein": 56, "Fat": 70},
-    "Female": {"Energy": 2000, "Protein": 46, "Fat": 70},
-    "Pregnant": {"Energy": 300 + 2000, "Protein": 71, "Fat": 70},
-    "Lactating": {"Energy": 500 + 2000, "Protein": 71, "Fat": 70}
+    "Male": {"Energy": 2500, "Protein": 56, "Iron": 8, "Calcium": 1000, "Sodium": 2300, "Potassium": 3400},
+    "Female": {"Energy": 2000, "Protein": 46, "Iron": 18, "Calcium": 1000, "Sodium": 2300, "Potassium": 2600},
+    "Pregnant": {"Energy": 300 + 2000, "Protein": 71, "Iron": 27, "Calcium": 1000, "Sodium": 2300, "Potassium": 2600},
+    "Lactating": {"Energy": 500 + 2000, "Protein": 71, "Iron": 9, "Calcium": 1000, "Sodium": 2300, "Potassium": 2600}
 }
 
 
@@ -136,8 +138,8 @@ def main():
     weight = st.number_input("Weight (kg)", min_value=1.0, max_value=200.0, value=70.0)
     height = st.number_input("Height (cm)", min_value=50.0, max_value=250.0, value=170.0)
     activity_level = st.selectbox("Activity Level", list(activity_levels.keys()))
-    is_pregnant = st.checkbox("Pregnant")
-    is_lactating = st.checkbox("Lactating")
+    is_pregnant = st.checkbox("Pregnant") if gender == "Female" else False
+    is_lactating = st.checkbox("Lactating") if gender == "Female" else False
 
     # BMR and Energy Expenditure
     bmr = calculate_bmr(age, gender, weight, height)
