@@ -104,7 +104,7 @@ else:
     st.sidebar.warning("No data to download. Please adjust your filters.")
 
 # Footer
-st.markdown("### Powered by Streamlit")
+st.markdown("### Powered by Panini")
 st.markdown(
     "This app allows you to explore, filter, and visualize nutrition data for various food items."
 )
