@@ -42,7 +42,7 @@ def main():
 
     # Initialize data storage
     food_diary = {}
-    days = ["Day 1", "Day 2", "Day 3"]
+    days = ["Day 1"]
 
     for day in days:
         st.header(day)
