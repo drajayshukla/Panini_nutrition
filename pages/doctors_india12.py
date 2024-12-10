@@ -68,9 +68,9 @@ fig1 = px.bar(top_insights, x="Category", y="Seats", title="Top Categories by Se
 st.plotly_chart(fig1)
 
 # Pie chart for numeric data
-st.write("### Pie Chart: Seats Distribution")
-fig2 = px.pie(df_numeric, names="Category", values="Seats", title="Seats Distribution")
-st.plotly_chart(fig2)
+#st.write("### Pie Chart: Seats Distribution")
+#fig2 = px.pie(df_numeric, names="Category", values="Seats", title="Seats Distribution")
+#st.plotly_chart(fig2)
 
 # Display textual data insights
 st.write("### Textual Data Insights")
