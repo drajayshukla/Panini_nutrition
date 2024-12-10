@@ -79,10 +79,11 @@ def plot_visualizations(rda, macronutrients):
     # Bar Chart
     categories = list(rda.keys())
     values = list(rda.values())
-    fig1, ax1 = plt.subplots()
+    fig1, ax1 = plt.subplots(figsize=(10, 5))
     ax1.bar(categories, values, color='skyblue')
-    ax1.set_title('RDA Breakdown')
-    ax1.set_ylabel('Amount')
+    ax1.set_title('RDA Breakdown', fontsize=14)
+    ax1.set_ylabel('Amount', fontsize=12)
+    ax1.set_xticklabels(categories, rotation=45, ha='right', fontsize=10)
     st.pyplot(fig1)
     bar_chart_path = save_plot_as_image(fig1)
 
@@ -91,7 +92,7 @@ def plot_visualizations(rda, macronutrients):
     macronutrient_values = macronutrients.values()
     fig2, ax2 = plt.subplots()
     ax2.pie(macronutrient_values, labels=macronutrient_labels, autopct='%1.1f%%', startangle=140)
-    ax2.set_title('Macronutrient Composition')
+    ax2.set_title('Macronutrient Composition', fontsize=14)
     st.pyplot(fig2)
     pie_chart_path = save_plot_as_image(fig2)
 
@@ -116,8 +117,8 @@ def radar_chart(rda):
     ax.fill(angles, stats, color='blue', alpha=0.25)
     ax.plot(angles, stats, color='blue', linewidth=2)
     ax.set_xticks(angles[:-1])
-    ax.set_xticklabels(labels)
-    ax.set_title('RDA Radar Chart')
+    ax.set_xticklabels(labels, fontsize=10)
+    ax.set_title('RDA Radar Chart', fontsize=14)
     return fig
 
 
