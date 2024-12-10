@@ -91,10 +91,22 @@ st.dataframe(df_per_year, use_container_width=True, height=600)
 st.write("### Per-Year Data Visualization")
 fig1 = px.bar(df_per_year, x="Category", y="Seats", title="Per-Year Data by Category", text="Seats")
 st.plotly_chart(fig1)
-
 # **Section 2: Non-Per-Year Data**
 st.write("### Non-Per-Year Data")
 st.dataframe(df_non_per_year, use_container_width=True, height=400)
+
+# Visualization for Non-Per-Year Data
+st.write("### Non-Per-Year Data Visualization")
+fig2 = px.bar(
+    df_non_per_year,
+    x="Category",
+    y="Seats",
+    title="Non-Per-Year Data Visualization",
+    text="Seats",
+    labels={"Seats": "Values", "Category": "Category"}
+)
+st.plotly_chart(fig2)
+
 
 # **Section 3: Projections**
 st.write("### Projected MBBS Seats Growth for the Next 10 Years")
