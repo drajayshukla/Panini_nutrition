@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+from math import pi
 from docx import Document
 from docx.shared import Inches
 import tempfile
@@ -48,32 +49,32 @@ questionnaire = {
 # Scoring options
 options = ["Always", "Often", "Sometimes", "Rarely", "Never"]
 
-def calculate_scores(responses):
-    scores = {
-        "High Mindful Eating": 0,
-        "Moderate Mindful Eating": 0,
-        "Low Mindful Eating": 0
-    }
+def calculate_section_scores(responses):
+    return {section: sum(1 for answer in answers if answer in ["Always", "Often"]) for section, answers in responses.items()}
 
-    for section, answers in responses.items():
-        for response in answers:
-            if response in ["Always", "Often"]:
-                scores["High Mindful Eating"] += 1
-            elif response == "Sometimes":
-                scores["Moderate Mindful Eating"] += 1
-            else:
-                scores["Low Mindful Eating"] += 1
-    return scores
+def visualize_radar_chart(section_scores):
+    categories = list(section_scores.keys())
+    values = list(section_scores.values())
+    values += values[:1]  # Repeat the first value to close the circle
 
-def save_plot_as_image(fig, filename):
-    temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".png")
-    fig.savefig(temp_file.name, bbox_inches="tight")
-    return temp_file.name
+    num_vars = len(categories)
+    angles = [n / float(num_vars) * 2 * pi for n in range(num_vars)]
+    angles += angles[:1]
 
-def save_to_word(responses, scores, recommendations, images):
+    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
+    ax.set_theta_offset(pi / 2)
+    ax.set_theta_direction(-1)
+
+    plt.xticks(angles[:-1], categories, color='grey', size=10)
+    ax.plot(angles, values, linewidth=2, linestyle='solid', color='blue')
+    ax.fill(angles, values, color='blue', alpha=0.25)
+    ax.set_title("Mindful Eating Radar Chart", size=15)
+    return fig
+
+def save_to_word(responses, section_scores, radar_chart_path):
     doc = Document()
     doc.add_heading("Mindful Eating Questionnaire (MEQ) Results", level=1)
-    doc.add_paragraph("Below are your responses, scores, and recommendations based on the MEQ.")
+    doc.add_paragraph("Below are your responses and a radar chart visualization based on the MEQ.")
 
     # Add responses
     doc.add_heading("Your Responses", level=2)
@@ -82,21 +83,9 @@ def save_to_word(responses, scores, recommendations, images):
         for question, answer in zip(questionnaire[section], answers):
             doc.add_paragraph(f"{question}: {answer}")
 
-    # Add scores
-    doc.add_heading("Your Scores", level=2)
-    for category, score in scores.items():
-        doc.add_paragraph(f"{category}: {score}")
-
-    # Add visualizations
-    doc.add_heading("Visualizations", level=2)
-    for title, image_path in images.items():
-        doc.add_paragraph(title)
-        doc.add_picture(image_path, width=Inches(4.0))
-
-    # Add recommendations
-    doc.add_heading("Recommendations", level=2)
-    for rec in recommendations:
-        doc.add_paragraph(rec)
+    # Add radar chart
+    doc.add_heading("Radar Chart", level=2)
+    doc.add_picture(radar_chart_path, width=Inches(4.0))
 
     # Save document to a temporary file
     temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".docx")
@@ -108,8 +97,7 @@ def main():
 
     st.markdown("""
     **Purpose:**  
-    This questionnaire assesses your awareness, emotional triggers, and mindfulness during meals.  
-    Select the option that best describes your behavior for each statement.
+    This questionnaire assesses your mindfulness during meals. Select the option that best describes your behavior for each statement.
     """)
 
     # User responses
@@ -122,61 +110,20 @@ def main():
             response = st.selectbox(question, options, key=f"{section}_{question}")
             responses[section].append(response)
 
-    # Calculate scores and display results
     if st.button("Submit Responses"):
-        scores = calculate_scores(responses)
+        section_scores = calculate_section_scores(responses)
 
-        # Display scores
-        st.subheader("Your Scores")
-        st.write(scores)
-
-        # Visualizations
-        st.subheader("Visualizations")
-
-        # Bar Chart
-        categories = list(scores.keys())
-        values = list(scores.values())
-        fig, ax = plt.subplots()
-        ax.bar(categories, values, color=["green", "orange", "red"])
-        ax.set_title("Mindful Eating Scores")
-        ax.set_ylabel("Number of Responses")
+        # Radar Chart Visualization
+        fig = visualize_radar_chart(section_scores)
         st.pyplot(fig)
-        bar_chart_path = save_plot_as_image(fig, "bar_chart.png")
 
-        # Pie Chart
-        fig, ax = plt.subplots()
-        ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=140, colors=["green", "orange", "red"])
-        ax.set_title("Mindful Eating Response Distribution")
-        st.pyplot(fig)
-        pie_chart_path = save_plot_as_image(fig, "pie_chart.png")
-
-        # Save images for Word document
-        images = {
-            "Bar Chart": bar_chart_path,
-            "Pie Chart": pie_chart_path,
-        }
-
-        # Provide recommendations
-        recommendations = []
-        if scores["High Mindful Eating"] >= scores["Moderate Mindful Eating"] and scores["High Mindful Eating"] >= scores["Low Mindful Eating"]:
-            st.success("Great job! You have a high level of mindful eating.")
-            recommendations.append("You are doing great with mindful eating. Keep it up!")
-        elif scores["Moderate Mindful Eating"] > scores["High Mindful Eating"]:
-            st.warning("You have a moderate level of mindful eating. Consider practicing mindful eating techniques.")
-            recommendations.append("Consider mindful eating exercises, like eating without distractions or focusing on flavors.")
-        else:
-            st.error("Your mindful eating level is low. Here are some tips to improve:")
-            recommendations.extend([
-                "Practice eating without distractions like TV or phones.",
-                "Pay attention to your hunger and satiety signals.",
-                "Avoid emotional eating triggers by managing stress effectively."
-            ])
-            for rec in recommendations:
-                st.write(f"- {rec}")
+        # Save radar chart as an image
+        radar_chart_path = tempfile.NamedTemporaryFile(delete=False, suffix=".png").name
+        fig.savefig(radar_chart_path, bbox_inches="tight")
 
         # Save to Word Document
-        word_file = save_to_word(responses, scores, recommendations, images)
-        st.success("Word document with graphs generated successfully!")
+        word_file = save_to_word(responses, section_scores, radar_chart_path)
+        st.success("Word document with radar chart generated successfully!")
         with open(word_file, "rb") as file:
             st.download_button("Download Results as Word Document", file, file_name="Mindful_Eating_Results.docx")
 
