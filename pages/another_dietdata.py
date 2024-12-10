@@ -15,7 +15,17 @@ st.title("Nutrition Data Analysis")
 
 # Load data
 data = load_data()
+numeric_columns = [
+    "energy_kcal", "protein_g", "carb_g", "fat_g", "fibre_g", "sfa_mg", "mufa_mg",
+    "pufa_mg", "cholesterol_mg", "calcium_mg", "phosphorus_mg", "magnesium_mg",
+    "sodium_mg", "potassium_mg", "iron_mg", "copper_mg", "selenium_ug",
+    "chromium_mg", "manganese_mg", "zinc_mg", "vitb1_mg", "vitb2_mg", "vitb3_mg",
+    "vitb5_mg", "vitb6_mg", "vitb7_ug", "vitc_mg"
+]
 
+for column in numeric_columns:
+    if column in data.columns:
+        data[column] = pd.to_numeric(data[column], errors="coerce")
 # Data Preprocessing: Clean up column names
 data.columns = data.columns.str.strip().str.lower().str.replace(" ", "_")
 
