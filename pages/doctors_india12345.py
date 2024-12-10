@@ -70,45 +70,61 @@ df = pd.DataFrame(data)
 st.write("### Full Dataset Overview")
 st.dataframe(df, use_container_width=True, height=600)
 
-# Separate per-year data and non-per-year data
-excluded_categories = [
+# Separate categories logically
+doctor_stats = [
     "Total Registered Allopathic Doctors",
     "Actively Practicing Doctors (Estimated)",
-    "Doctor-Population Ratio",
+    "Doctor-Population Ratio"
+]
+
+growth_metrics = [
     "Medical Colleges Growth (2014-2024)",
     "MBBS Seats Growth (2014-2024)",
     "PG Seats Growth (2014-2024)",
     "Projected MBBS Seats Increase (Next 10 Years)"
 ]
-df_per_year = df[~df["Category"].isin(excluded_categories)]
-df_non_per_year = df[df["Category"].isin(excluded_categories)]
+
+df_doctor_stats = df[df["Category"].isin(doctor_stats)]
+df_growth_metrics = df[df["Category"].isin(growth_metrics)]
+df_per_year = df[~df["Category"].isin(doctor_stats + growth_metrics)]
 
 # **Section 1: Per-Year Data**
 st.write("### Per-Year Data")
-st.dataframe(df_per_year, use_container_width=True, height=600)
+st.dataframe(df_per_year, use_container_width=True, height=400)
 
 # Visualization for Per-Year Data
-st.write("### Per-Year Data Visualization")
 fig1 = px.bar(df_per_year, x="Category", y="Seats", title="Per-Year Data by Category", text="Seats")
 st.plotly_chart(fig1)
-# **Section 2: Non-Per-Year Data**
-st.write("### Non-Per-Year Data")
-st.dataframe(df_non_per_year, use_container_width=True, height=400)
 
-# Visualization for Non-Per-Year Data
-st.write("### Non-Per-Year Data Visualization")
+# **Section 2: Doctor Statistics**
+st.write("### Doctor Statistics")
+st.dataframe(df_doctor_stats, use_container_width=True, height=400)
+
+# Visualization for Doctor Statistics
 fig2 = px.bar(
-    df_non_per_year,
+    df_doctor_stats,
     x="Category",
     y="Seats",
-    title="Non-Per-Year Data Visualization",
-    text="Seats",
-    labels={"Seats": "Values", "Category": "Category"}
+    title="Doctor Statistics",
+    text="Seats"
 )
 st.plotly_chart(fig2)
 
+# **Section 3: Growth Metrics**
+st.write("### Growth Metrics")
+st.dataframe(df_growth_metrics, use_container_width=True, height=400)
 
-# **Section 3: Projections**
+# Visualization for Growth Metrics
+fig3 = px.bar(
+    df_growth_metrics,
+    x="Category",
+    y="Seats",
+    title="Growth Metrics",
+    text="Seats"
+)
+st.plotly_chart(fig3)
+
+# **Section 4: Projections**
 st.write("### Projected MBBS Seats Growth for the Next 10 Years")
 projected_growth = {"Year": list(range(2024, 2034)), "MBBS Seats": []}
 current_seats = 118137
@@ -118,8 +134,8 @@ for year in projected_growth["Year"]:
     projected_growth["MBBS Seats"].append(current_seats)
 
 df_projection = pd.DataFrame(projected_growth)
-fig2 = px.line(df_projection, x="Year", y="MBBS Seats", title="Projected MBBS Seats Growth (Next 10 Years)")
-st.plotly_chart(fig2)
+fig4 = px.line(df_projection, x="Year", y="MBBS Seats", title="Projected MBBS Seats Growth (Next 10 Years)")
+st.plotly_chart(fig4)
 
 # **References**
 st.write("### References")
