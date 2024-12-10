@@ -5,8 +5,9 @@ import tempfile
 import matplotlib.pyplot as plt
 import networkx as nx
 
-# RxNorm API URLs
+# RxNorm and OpenFDA API URLs
 RXNORM_BASE_URL = "https://rxnav.nlm.nih.gov/REST"
+OPENFDA_URL = "https://api.fda.gov/drug/label.json"
 
 
 # Function to fetch RxCUI (RxNorm Concept Unique Identifier) for a drug
@@ -19,7 +20,7 @@ def get_rxcui(drug_name):
     return None
 
 
-# Function to check interactions between drugs
+# Function to check interactions between drugs using RxNorm
 def check_interactions(rxcuis):
     url = f"{RXNORM_BASE_URL}/interaction/list.json"
     response = requests.get(url, params={"rxcuis": "+".join(rxcuis)})
@@ -30,30 +31,15 @@ def check_interactions(rxcuis):
     return None
 
 
-# Generate Word Report
-def generate_word_report(drug_names, interactions, interaction_graph_path):
-    doc = Document()
-    doc.add_heading("Drug Interaction Report", level=1)
-
-    # Drug Names
-    doc.add_heading("Drugs Checked", level=2)
-    for drug in drug_names:
-        doc.add_paragraph(f"- {drug}")
-
-    # Interaction Details
-    doc.add_heading("Interactions", level=2)
-    if interactions:
-        for interaction in interactions:
-            doc.add_paragraph(interaction)
-
-    # Add Interaction Graph
-    if interaction_graph_path:
-        doc.add_heading("Interaction Network Graph", level=2)
-        doc.add_picture(interaction_graph_path)
-
-    temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".docx")
-    doc.save(temp_file.name)
-    return temp_file.name
+# Fallback: Fetch drug warnings using OpenFDA
+def fetch_drug_warnings(drug_name):
+    response = requests.get(OPENFDA_URL, params={"search": f"active_ingredient:{drug_name}", "limit": 1})
+    if response.status_code == 200:
+        data = response.json()
+        results = data.get("results", [])
+        if results:
+            return results[0].get("warnings", ["No warnings found"])
+    return None
 
 
 # Plot Interaction Network
@@ -79,6 +65,39 @@ def plot_interaction_network(interactions):
     return temp_file.name
 
 
+# Generate Word Report
+def generate_word_report(drug_names, interactions, warnings, interaction_graph_path):
+    doc = Document()
+    doc.add_heading("Drug Interaction Report", level=1)
+
+    # Drug Names
+    doc.add_heading("Drugs Checked", level=2)
+    for drug in drug_names:
+        doc.add_paragraph(f"- {drug}")
+
+    # Interaction Details
+    doc.add_heading("Interactions", level=2)
+    if interactions:
+        for interaction in interactions:
+            doc.add_paragraph(interaction)
+    else:
+        doc.add_paragraph("No significant interactions found.")
+
+    # Warnings
+    doc.add_heading("Drug Warnings (Fallback)", level=2)
+    for drug, warning in warnings.items():
+        doc.add_paragraph(f"{drug}: {warning}")
+
+    # Add Interaction Graph
+    if interaction_graph_path:
+        doc.add_heading("Interaction Network Graph", level=2)
+        doc.add_picture(interaction_graph_path)
+
+    temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".docx")
+    doc.save(temp_file.name)
+    return temp_file.name
+
+
 # Main App
 def main():
     st.title("Drug Interaction Checker")
@@ -100,35 +119,44 @@ def main():
                 rxcuis.append(rxcui)
             else:
                 st.error(f"Unable to find RxCUI for drug: {drug}")
-                return
 
         # Check Interactions
         interactions_data = check_interactions(rxcuis)
+        interactions = []
         if interactions_data:
-            interactions = []
             for group in interactions_data:
                 for interaction in group.get("fullInteractionType", []):
                     description = interaction.get("interactionPair", [{}])[0].get("description", "No description")
                     interactions.append(description)
 
-            # Display Results
+        # Fallback to OpenFDA if no interactions found
+        warnings = {}
+        if not interactions:
+            st.warning("No interactions found. Checking for drug warnings...")
+            for drug in drug_names:
+                warning = fetch_drug_warnings(drug)
+                warnings[drug] = warning
+
+        # Display Results
+        if interactions:
             st.subheader("Interaction Results")
-            if interactions:
-                st.write(interactions)
+            st.write(interactions)
 
-                # Plot Network Graph
-                interaction_graph_path = plot_interaction_network(interactions)
-                st.image(interaction_graph_path, caption="Interaction Network Graph", use_column_width=True)
-
-                # Generate Report
-                if st.button("Download Report"):
-                    report = generate_word_report(drug_names, interactions, interaction_graph_path)
-                    with open(report, "rb") as file:
-                        st.download_button("Download Report", file, file_name="Drug_Interaction_Report.docx")
-            else:
-                st.success("No significant interactions found.")
+            # Plot Network Graph
+            interaction_graph_path = plot_interaction_network(interactions)
+            st.image(interaction_graph_path, caption="Interaction Network Graph", use_column_width=True)
         else:
-            st.error("Unable to fetch interaction data. Please try again later.")
+            st.subheader("Drug Warnings (Fallback)")
+            st.json(warnings)
+
+        # Generate Report
+        if st.button("Download Report"):
+            interaction_graph_path = None
+            if interactions:
+                interaction_graph_path = plot_interaction_network(interactions)
+            report = generate_word_report(drug_names, interactions, warnings, interaction_graph_path)
+            with open(report, "rb") as file:
+                st.download_button("Download Report", file, file_name="Drug_Interaction_Report.docx")
 
 
 if __name__ == "__main__":
