@@ -77,7 +77,7 @@ df_textual = df[~df.index.isin(df_numeric.index)]
 
 # **Section 1: Per-Year Data**
 st.write("### Per-Year Data")
-st.write(df_numeric)
+st.dataframe(df_numeric, use_container_width=True, height=600)
 
 # Visualization for Per-Year Data
 st.write("### Per-Year Data Visualization")
