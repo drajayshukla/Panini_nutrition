@@ -89,8 +89,8 @@ fig1 = px.bar(top_insights, x="Category", y="Seats", title="Top Categories by Se
 st.plotly_chart(fig1)
 
 # 2. Pie Chart of Seats Distribution
-fig2 = px.pie(df_numeric, names="Category", values="Seats", title="Seats Distribution")
-st.plotly_chart(fig2)
+#fig2 = px.pie(df_numeric, names="Category", values="Seats", title="Seats Distribution")
+#st.plotly_chart(fig2)
 
 # 3. Scatter Plot of Numeric Categories
 fig3 = px.scatter(df_numeric, x="Category", y="Seats", title="Scatter Plot of Seats")
