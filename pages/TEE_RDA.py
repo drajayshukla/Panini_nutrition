@@ -168,7 +168,7 @@ def main():
     st.subheader("Recommended Dietary Allowances (ICMR)")
     st.write(rda)
 
-    st.subheader("Macronutrient Distribution")
+    st.subheader("Macronutrient Distribution(Kcal)")
     st.write(macronutrients)
 
     # Visualizations
