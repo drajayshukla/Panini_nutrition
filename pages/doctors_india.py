@@ -97,15 +97,15 @@ fig3 = px.scatter(df_numeric, x="Category", y="Seats", title="Scatter Plot of Se
 st.plotly_chart(fig3)
 
 # 4. Heatmap (Correlation not applicable; here, size comparison)
-fig4, ax = plt.subplots(figsize=(10, 6))
-sns.barplot(x="Seats", y="Category", data=top_insights, palette="coolwarm", ax=ax)
-ax.set_title("Seats Comparison (Top 10 Categories)")
-st.pyplot(fig4)
+#fig4, ax = plt.subplots(figsize=(10, 6))
+#sns.barplot(x="Seats", y="Category", data=top_insights, palette="coolwarm", ax=ax)
+#ax.set_title("Seats Comparison (Top 10 Categories)")
+#st.pyplot(fig4)
 
 # 5. Word Cloud of Categories
-from wordcloud import WordCloud
-wordcloud = WordCloud(width=800, height=400, background_color="white").generate(" ".join(df["Category"]))
-fig5, ax = plt.subplots(figsize=(10, 5))
-ax.imshow(wordcloud, interpolation="bilinear")
-ax.axis("off")
-st.pyplot(fig5)
+#from wordcloud import WordCloud
+#wordcloud = WordCloud(width=800, height=400, background_color="white").generate(" ".join(df["Category"]))
+#fig5, ax = plt.subplots(figsize=(10, 5))
+#ax.imshow(wordcloud, interpolation="bilinear")
+#ax.axis("off")
+#st.pyplot(fig5)
