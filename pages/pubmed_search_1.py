@@ -9,6 +9,33 @@ PUBMED_FETCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
 # NCBI API Key (optional for higher rate limits)
 API_KEY = None  # Replace with your API Key if available
 
+# Journal Options
+CLINICAL_JOURNALS = [
+    "N Engl J Med",
+    "Lancet",
+    "JAMA",
+    "BMJ",
+    "Ann Intern Med",
+    "PLOS Medicine",
+    "J Clin Invest",
+    "JAMA Intern Med",
+    "Am J Med",
+    "CMAJ"
+]
+
+ENDOCRINOLOGY_JOURNALS = [
+    "J Clin Endocrinol Metab",
+    "Diabetes Care",
+    "Endocrinology",
+    "Diabetologia",
+    "Lancet Diabetes Endocrinol",
+    "Thyroid",
+    "Endocrine Reviews",
+    "Bone",
+    "Horm Metab Res",
+    "Nature Rev Endocrinol"
+]
+
 # Fetch PMIDs from PubMed
 def fetch_pmids(journal, start, end):
     params = {
@@ -28,7 +55,7 @@ def fetch_pmids(journal, start, end):
         st.error("Failed to fetch PMIDs from PubMed. Please try again later.")
         return []
 
-# Fetch article details using PMIDs
+# Fetch article details including DOI using PMIDs
 def fetch_article_details(pmids):
     params = {
         "db": "pubmed",
@@ -44,8 +71,9 @@ def fetch_article_details(pmids):
             if uid != "uids":  # Skip metadata key
                 title = details.get("title", "No Title Available")
                 pubdate = details.get("pubdate", "No Date Available")
+                doi = details.get("elocationid", "No DOI Available")
                 link = f"https://pubmed.ncbi.nlm.nih.gov/{uid}/"
-                articles.append({"Title": title, "Publication Date": pubdate, "Link": link})
+                articles.append({"Title": title, "Publication Date": pubdate, "DOI": doi, "Link": link})
         return articles
     else:
         st.error("Failed to fetch article details from PubMed. Please try again later.")
@@ -53,13 +81,16 @@ def fetch_article_details(pmids):
 
 # Streamlit App
 def main():
-    st.title("NEJM Articles - PubMed Link Finder")
+    st.title("PubMed Article Finder with DOI")
     st.markdown("""
-    This app retrieves the latest articles from the **New England Journal of Medicine (NEJM)** on PubMed.
+    This app retrieves the latest articles from PubMed for selected clinical or endocrinology journals, including DOIs.
     """)
 
-    # Input for article range
-    st.sidebar.header("Article Range Selection")
+    # Sidebar Filters
+    st.sidebar.header("Filters")
+    category = st.sidebar.radio("Select Journal Category", ["Clinical Journals", "Endocrinology Journals"])
+    journal_list = CLINICAL_JOURNALS if category == "Clinical Journals" else ENDOCRINOLOGY_JOURNALS
+    journal = st.sidebar.selectbox("Select Journal", journal_list)
     start_index = st.sidebar.number_input("Start Index (e.g., 0)", min_value=0, value=0, step=1)
     end_index = st.sidebar.number_input("End Index (e.g., 100)", min_value=1, value=100, step=1)
 
@@ -68,26 +99,29 @@ def main():
 
     if st.sidebar.button("Fetch Articles"):
         with st.spinner("Fetching articles..."):
-            pmids = fetch_pmids("N Engl J Med", start_index, end_index)
+            pmids = fetch_pmids(journal, start_index, end_index)
             if pmids:
                 articles = fetch_article_details(pmids)
                 if articles:
-                    st.success(f"Fetched {len(articles)} articles!")
+                    st.success(f"Fetched {len(articles)} articles from {journal}!")
                     df = pd.DataFrame(articles)
 
                     # Make links clickable in the Streamlit DataFrame
                     df['Link'] = df['Link'].apply(
                         lambda x: f'<a href="{x}" target="_blank">PubMed Link</a>'
                     )
+                    df['DOI'] = df['DOI'].apply(
+                        lambda x: f'<a href="https://doi.org/{x}" target="_blank">{x}</a>' if "10." in x else x
+                    )
                     st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
-                    # Prepare a downloadable CSV with links
+                    # Prepare a downloadable CSV with links and DOIs
                     csv_data = pd.DataFrame(articles)  # Original DataFrame for CSV
                     csv_data = csv_data.to_csv(index=False).encode("utf-8")
                     st.download_button(
-                        label="Download CSV with Links",
+                        label="Download CSV with Links and DOIs",
                         data=csv_data,
-                        file_name=f"nejm_articles_{start_index}_to_{end_index}.csv",
+                        file_name=f"{journal}_articles_{start_index}_to_{end_index}.csv",
                         mime="text/csv",
                     )
                 else:
