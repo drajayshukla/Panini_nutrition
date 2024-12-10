@@ -55,7 +55,7 @@ def fetch_pmids(journal, start, end):
         st.error("Failed to fetch PMIDs from PubMed. Please try again later.")
         return []
 
-# Fetch article details including DOI using PMIDs
+# Fetch article details including DOI and Sci-Hub links using PMIDs
 def fetch_article_details(pmids):
     params = {
         "db": "pubmed",
