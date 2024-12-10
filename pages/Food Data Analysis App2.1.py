@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from wordcloud import WordCloud
 import plotly.express as px
+from wordcloud import WordCloud
 
 # App title
 st.title("Food Data Analysis App")
@@ -28,18 +28,41 @@ if uploaded_file:
     text_columns = df.select_dtypes(include=["object"]).columns.tolist()
     selected_column = st.selectbox("Select a column to analyze", numeric_columns + text_columns)
 
-    if selected_column in text_columns:
-        # Word Cloud for the selected text column
-        st.write(f"### Word Cloud for '{selected_column}'")
-        wordcloud = WordCloud(width=800, height=400, background_color="white").generate(
-            " ".join(df[selected_column].dropna())
+    # Top 20 and Bottom 20 analysis for numeric columns
+    if selected_column in numeric_columns:
+        st.write("### Top 20 and Bottom 20 Analysis")
+        top_20 = df.nlargest(20, selected_column)
+        bottom_20 = df.nsmallest(20, selected_column)
+
+        st.write("#### Top 20")
+        st.dataframe(top_20[["food_name", selected_column]])
+
+        st.write("#### Bottom 20")
+        st.dataframe(bottom_20[["food_name", selected_column]])
+
+        # Visualization for Top 20
+        st.write(f"### Bar Plot: Top 20 by {selected_column}")
+        fig = px.bar(
+            top_20,
+            x="food_name",
+            y=selected_column,
+            labels={"food_name": "Food Name", selected_column: f"{selected_column}"},
+            title=f"Top 20 Foods by {selected_column}",
         )
-        fig, ax = plt.subplots(figsize=(10, 5))
-        ax.imshow(wordcloud, interpolation="bilinear")
-        ax.axis("off")
-        st.pyplot(fig)
-    elif selected_column in numeric_columns:
-        # Correlation analysis for the selected numeric column
+        st.plotly_chart(fig)
+
+        # Visualization for Bottom 20
+        st.write(f"### Bar Plot: Bottom 20 by {selected_column}")
+        fig = px.bar(
+            bottom_20,
+            x="food_name",
+            y=selected_column,
+            labels={"food_name": "Food Name", selected_column: f"{selected_column}"},
+            title=f"Bottom 20 Foods by {selected_column}",
+        )
+        st.plotly_chart(fig)
+
+        # Correlation analysis for numeric columns
         st.write(f"### Correlation Analysis for '{selected_column}'")
         correlation_values = df[numeric_columns].corr()[selected_column].sort_values(ascending=False)
         st.write(correlation_values)
@@ -52,3 +75,36 @@ if uploaded_file:
             annot=True, fmt=".2f", cmap="coolwarm", ax=ax,
         )
         st.pyplot(fig)
+
+    # Word Cloud for text columns
+    if selected_column in text_columns:
+        st.write(f"### Word Cloud for '{selected_column}'")
+        wordcloud = WordCloud(width=800, height=400, background_color="white").generate(
+            " ".join(df[selected_column].dropna())
+        )
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.imshow(wordcloud, interpolation="bilinear")
+        ax.axis("off")
+        st.pyplot(fig)
+
+    # Custom Analysis
+    st.write("### Custom Analysis")
+    if st.checkbox("Show Top Foods by Energy (kcal)"):
+        top_foods = df.nlargest(5, "energy_kcal")[["food_name", "energy_kcal"]]
+        st.write(top_foods)
+
+    if st.checkbox("Show Nutritional Comparison"):
+        selected_foods = st.multiselect("Select foods to compare", df["food_name"].unique())
+        if selected_foods:
+            comparison_data = df[df["food_name"].isin(selected_foods)][
+                ["food_name", "energy_kcal", "protein_g", "carb_g", "fat_g"]
+            ]
+            st.write(comparison_data)
+            fig = px.bar(
+                comparison_data,
+                x="food_name",
+                y=["energy_kcal", "protein_g", "carb_g", "fat_g"],
+                barmode="group",
+                title="Nutritional Comparison",
+            )
+            st.plotly_chart(fig)
