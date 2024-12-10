@@ -14,5 +14,6 @@ torch
 torchvision
 opencv-python
 pillow
+python-docx
 
 
