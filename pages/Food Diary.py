@@ -60,7 +60,7 @@ def save_to_pdf(data, notes, rewards):
 
 
 def main():
-    st.title("🍎 Gamified Food Diary 🍔")
+    st.title("🍎Food Diary 🍔")
 
     st.markdown("""
     **Welcome to Your Food Diary!**  
