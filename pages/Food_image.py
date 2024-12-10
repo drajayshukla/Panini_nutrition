@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 # Load YOLOv5 model
 @st.cache_resource
 def load_model():
-    # Replace with your YOLOv5 model path
     model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', force_reload=True)
     return model
+
 
 # Function to estimate calories
 def estimate_calories(predictions):
