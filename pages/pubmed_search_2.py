@@ -12,7 +12,7 @@ API_KEY = None  # Replace with your API Key if available
 # Journal Options
 CLINICAL_JOURNALS = [
     "N Engl J Med",
-    "The Lancet",
+    "Lancet",
     "JAMA",
     "BMJ",
     "Ann Intern Med",
