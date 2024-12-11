@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import pandas as pd
+import urllib.parse
 
 # PubMed API URLs
 PUBMED_SEARCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
@@ -64,6 +65,15 @@ def fetch_article_details(pmids):
         st.error("Failed to fetch article details from PubMed.")
         return []
 
+# Function to extract query from PubMed URL
+def extract_query_from_url(url):
+    parsed_url = urllib.parse.urlparse(url)
+    query_params = urllib.parse.parse_qs(parsed_url.query)
+    term = query_params.get("term", [None])[0]
+    if term:
+        return term.replace("%20", " ")
+    return None
+
 # Streamlit App
 def main():
     st.title("PubMed Article Fetcher")
@@ -84,14 +94,13 @@ def main():
     url_input = st.text_input("Or paste a PubMed search URL:", placeholder="https://pubmed.ncbi.nlm.nih.gov/?term=(hypoparathyroidism+OR+hypocalcemia)+AND+random*")
 
     # Determine query from input
+    query = None
     if url_input:
-        if "term=" in url_input:
-            query = url_input.split("term=")[1].split("&")[0].replace("+", " ")
-        else:
-            st.error("Invalid PubMed URL. Ensure it contains a 'term=' parameter.")
-            query = None
-    else:
-        query = query_input if query_input.strip() else None
+        query = extract_query_from_url(url_input)
+        if not query:
+            st.error("Invalid PubMed URL. Ensure it contains a valid 'term=' parameter.")
+    elif query_input.strip():
+        query = query_input.strip()
 
     if query:
         if st.button("Fetch Articles"):
