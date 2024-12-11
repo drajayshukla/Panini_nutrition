@@ -2,9 +2,10 @@ import streamlit as st
 import requests
 import pandas as pd
 
-# PubMed API Base URL
+# PubMed API Base URLs
 PUBMED_SEARCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 PUBMED_FETCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
+PUBMED_DETAILS_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
 
 # NCBI API Key (optional for higher rate limits)
 API_KEY = None  # Replace with your API Key if available
@@ -55,26 +56,41 @@ def fetch_pmids(journal, start, end):
         st.error("Failed to fetch PMIDs from PubMed. Please try again later.")
         return []
 
-# Fetch article details including DOI and Sci-Hub links using PMIDs
+# Fetch article details including DOI, abstracts, and Sci-Hub links using PMIDs
 def fetch_article_details(pmids):
     params = {
         "db": "pubmed",
         "id": ",".join(pmids),
-        "retmode": "json",
+        "rettype": "abstract",
+        "retmode": "xml",
         "api_key": API_KEY,
     }
-    response = requests.get(PUBMED_FETCH_URL, params=params)
+    response = requests.get(PUBMED_DETAILS_URL, params=params)
     if response.status_code == 200:
-        data = response.json()
+        from xml.etree import ElementTree as ET
+        root = ET.fromstring(response.content)
         articles = []
-        for uid, details in data.get("result", {}).items():
-            if uid != "uids":  # Skip metadata key
-                title = details.get("title", "No Title Available")
-                pubdate = details.get("pubdate", "No Date Available")
-                doi = details.get("elocationid", "No DOI Available")
-                pubmed_link = f"https://pubmed.ncbi.nlm.nih.gov/{uid}/"
-                sci_hub_link = f"https://sci-hub.se/{doi}" if "10." in doi else "No Sci-Hub Link Available"
-                articles.append({"Title": title, "Publication Date": pubdate, "DOI": doi, "PubMed Link": pubmed_link, "Sci-Hub Link": sci_hub_link})
+        for article in root.findall(".//PubmedArticle"):
+            title = article.find(".//ArticleTitle").text or "No Title Available"
+            abstract = (
+                " ".join([p.text for p in article.findall(".//AbstractText") if p.text])
+                or "No Abstract Available"
+            )
+            pubdate = article.find(".//PubDate").text or "No Date Available"
+            pmid = article.find(".//PMID").text
+            doi = article.find(".//ELocationID[@EIdType='doi']").text or "No DOI Available"
+            pubmed_link = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
+            sci_hub_link = f"https://sci-hub.se/{doi}" if "10." in doi else "No Sci-Hub Link Available"
+            articles.append(
+                {
+                    "Title": title,
+                    "Abstract": abstract,
+                    "Publication Date": pubdate,
+                    "DOI": doi,
+                    "PubMed Link": pubmed_link,
+                    "Sci-Hub Link": sci_hub_link,
+                }
+            )
         return articles
     else:
         st.error("Failed to fetch article details from PubMed. Please try again later.")
@@ -82,9 +98,9 @@ def fetch_article_details(pmids):
 
 # Streamlit App
 def main():
-    st.title("PubMed Article Finder with DOI and Sci-Hub Links")
+    st.title("PubMed Article Finder with Abstracts, DOIs, and Sci-Hub Links")
     st.markdown("""
-    This app retrieves the latest articles from PubMed for selected clinical or endocrinology journals, including DOIs and Sci-Hub links.
+    This app retrieves the latest articles from PubMed for selected clinical or endocrinology journals, including abstracts, DOIs, and Sci-Hub links.
     """)
 
     # Sidebar Filters
@@ -107,23 +123,20 @@ def main():
                     st.success(f"Fetched {len(articles)} articles from {journal}!")
                     df = pd.DataFrame(articles)
 
-                    # Make links clickable in the Streamlit DataFrame
-                    df['PubMed Link'] = df['PubMed Link'].apply(
-                        lambda x: f'<a href="{x}" target="_blank">PubMed Link</a>'
-                    )
-                    df['Sci-Hub Link'] = df['Sci-Hub Link'].apply(
-                        lambda x: f'<a href="{x}" target="_blank">Sci-Hub Link</a>' if "sci-hub" in x else x
-                    )
-                    df['DOI'] = df['DOI'].apply(
-                        lambda x: f'<a href="https://doi.org/{x}" target="_blank">{x}</a>' if "10." in x else x
-                    )
-                    st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
+                    # Display abstracts in an expandable format
+                    for i, row in df.iterrows():
+                        with st.expander(f"{row['Title']} (Published: {row['Publication Date']})"):
+                            st.write(f"**DOI**: {row['DOI']}")
+                            st.write(f"**PubMed Link**: [Link]({row['PubMed Link']})")
+                            st.write(f"**Sci-Hub Link**: [Link]({row['Sci-Hub Link']})")
+                            st.write("**Abstract**:")
+                            st.write(row["Abstract"])
 
-                    # Prepare a downloadable CSV with links
-                    csv_data = pd.DataFrame(articles)  # Includes Sci-Hub links in the CSV
+                    # Prepare a downloadable CSV with abstracts
+                    csv_data = pd.DataFrame(articles)  # Includes abstracts
                     csv_data = csv_data.to_csv(index=False).encode("utf-8")
                     st.download_button(
-                        label="Download CSV with Links and DOIs",
+                        label="Download CSV with Abstracts and Links",
                         data=csv_data,
                         file_name=f"{journal}_articles_{start_index}_to_{end_index}.csv",
                         mime="text/csv",
