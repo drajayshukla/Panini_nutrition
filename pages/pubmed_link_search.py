@@ -8,7 +8,6 @@ PUBMED_FETCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
 
 # PubMed API Parameters
 API_KEY = None  # Replace with your PubMed API Key if available
-SEARCH_QUERY = "(hypoparathyroidism OR hypocalcemia OR hypocal* OR hypoPT OR \"parathyroid hormone\" OR PTH OR rhPTH OR \"PTH(1–34)\" OR teriparatide OR \"PTH(1–84)\" OR \"TransCon PTH\") AND random*"
 
 # Function to fetch PMIDs from PubMed
 def fetch_pmids(query):
@@ -70,40 +69,59 @@ def main():
     st.title("PubMed Article Fetcher")
     st.markdown(
         """
-        This app retrieves articles from PubMed based on the following query:
+        This app retrieves articles from PubMed based on a query or a PubMed search URL provided by the user.
 
-        **Query**: (hypoparathyroidism OR hypocalcemia OR hypocal* OR hypoPT OR "parathyroid hormone" OR PTH OR rhPTH OR "PTH(1–34)" OR teriparatide OR "PTH(1–84)" OR "TransCon PTH") AND random*
+        **Options:**
+        1. Enter a custom query to search PubMed.
+        2. Paste a PubMed search URL.
 
         Results are sorted by date.
         """
     )
 
-    if st.button("Fetch Articles"):
-        with st.spinner("Fetching articles from PubMed..."):
-            pmids = fetch_pmids(SEARCH_QUERY)
-            if pmids:
-                articles = fetch_article_details(pmids)
-                if articles:
-                    st.success(f"Found {len(articles)} articles!")
+    # Input options
+    query_input = st.text_area("Enter a PubMed search query:", placeholder="e.g., (hypoparathyroidism OR hypocalcemia) AND random*")
+    url_input = st.text_input("Or paste a PubMed search URL:", placeholder="https://pubmed.ncbi.nlm.nih.gov/?term=(hypoparathyroidism+OR+hypocalcemia)+AND+random*")
 
-                    # Display articles
-                    for article in articles:
-                        with st.expander(article["Title"]):
-                            st.write(f"**Publication Date**: {article['Publication Date']}")
-                            st.write(f"**Abstract**: {article['Abstract']}")
-                            st.markdown(f"[PubMed Link]({article['PubMed Link']})")
+    # Determine query from input
+    if url_input:
+        if "term=" in url_input:
+            query = url_input.split("term=")[1].split("&")[0].replace("+", " ")
+        else:
+            st.error("Invalid PubMed URL. Ensure it contains a 'term=' parameter.")
+            query = None
+    else:
+        query = query_input if query_input.strip() else None
 
-                    # Prepare and download a CSV
-                    df = pd.DataFrame(articles)
-                    csv_data = df.to_csv(index=False).encode("utf-8")
-                    st.download_button(
-                        label="Download CSV",
-                        data=csv_data,
-                        file_name="pubmed_articles.csv",
-                        mime="text/csv",
-                    )
-                else:
-                    st.warning("No articles found.")
+    if query:
+        if st.button("Fetch Articles"):
+            with st.spinner("Fetching articles from PubMed..."):
+                pmids = fetch_pmids(query)
+                if pmids:
+                    articles = fetch_article_details(pmids)
+                    if articles:
+                        st.success(f"Found {len(articles)} articles!")
+
+                        # Display articles
+                        for article in articles:
+                            with st.expander(article["Title"]):
+                                st.write(f"**Publication Date**: {article['Publication Date']}")
+                                st.write(f"**Abstract**: {article['Abstract']}")
+                                st.markdown(f"[PubMed Link]({article['PubMed Link']})")
+
+                        # Prepare and download a CSV
+                        df = pd.DataFrame(articles)
+                        csv_data = df.to_csv(index=False).encode("utf-8")
+                        st.download_button(
+                            label="Download CSV",
+                            data=csv_data,
+                            file_name="pubmed_articles.csv",
+                            mime="text/csv",
+                        )
+                    else:
+                        st.warning("No articles found.")
+    else:
+        st.warning("Please provide a query or a valid PubMed search URL.")
 
 if __name__ == "__main__":
     main()
